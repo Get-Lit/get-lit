@@ -25,8 +25,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Config routes
-const routes = require('./config/routes.config');
-/* app.use('/', router); */
+const router = require('./config/routes.config');
+app.use('/', router);
 
 // Error Handling
 app.use((req, res, next) => {
