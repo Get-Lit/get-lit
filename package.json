@@ -1,0 +1,41 @@
+{
+  "name": "get-lit",
+  "version": "1.0.0",
+  "description": "Get Lit is WEB API where you can share and discuss your favorite books with other bookworms. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Get-Lit/get-lit.git"
+  },
+  "author": "Isa Gutierrez & Vicente Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Get-Lit/get-lit/issues"
+  },
+  "homepage": "https://github.com/Get-Lit/get-lit#readme",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.28.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "hbs": "^4.2.0",
+    "http-errors": "^2.0.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.2.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}
