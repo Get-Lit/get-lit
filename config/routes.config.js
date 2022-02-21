@@ -12,5 +12,7 @@ const room = require('../controllers/room.controller');
 // Middlewares
 const authMiddleware = require('../middlewares/auth.middleware');
 
+// Misc Routes
+router.get('', misc.home);
 
 module.exports = router;
