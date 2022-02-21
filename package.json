@@ -4,7 +4,9 @@
   "description": "Get Lit is WEB API where you can share and discuss your favorite books with other bookworms. ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -e hbs,css,js,html app.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "cloudinary": "^1.28.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "hbs": "^4.2.0",
