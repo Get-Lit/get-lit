@@ -46,4 +46,15 @@ const userSchema = new mongoose.Schema({
         type: [ String ],
         enum: [ god, master, moderator, regular ]
     }
-})
+}, { timestamps: true });
+
+userSchema.virtual('likes', {
+    ref: 'Like',
+    localField: '_id',
+    foreignField: 'user',
+    justOne: false
+});
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
