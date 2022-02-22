@@ -15,4 +15,10 @@ const authMiddleware = require('../middlewares/auth.middleware');
 // Misc Routes
 router.get('', misc.home);
 
+// Sign up Routes
+router.get('/signup', auth.signup)
+router.post('/signup', auth.doSignup)
+
+// Log in Routes
+
 module.exports = router;
