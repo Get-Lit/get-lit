@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const EMAIL_PATTERN = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const PASSWORD_PATTERN = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-const SALT_ROUNDS = 10;
+const SALT = 10;
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -54,6 +54,27 @@ userSchema.virtual('likes', {
     foreignField: 'user',
     justOne: false
 });
+
+userSchema.pre('save', function(next) {
+    const user = this;
+
+    if(user.isModified('password')){
+        bcrypt.hash(user.password, SALT)
+            .then(hash => {
+                user.password = hash;
+                next();
+            })
+            .catch(error => next(error));
+    } else {
+        next();
+    }
+});
+
+userSchema.methods.checkPassword = function(password){
+    const user = this;
+    
+    return bcrypt.compare('password', user.password);
+}
 
 const User = mongoose.model('User', userSchema);
 
