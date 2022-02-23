@@ -22,16 +22,17 @@ passport.use('local-auth', new LocalStrategy(
         passwordField: 'password'
     },
     (email, password, next) => {
-        User.findOne(email)
+        User.findOne({ email })
             .then(user => {
                 if(!user){
                     next(null, false, { error: 'Wrong email or password' })
                 } else {
-                    return User.checkPassword(password)
+                    return user.checkPassword(password)
                         .then(match => {
                             if(!match){
                                 next(null, false, { error: 'Wrong email or password' })
                             } else {
+                                next(null, user);
                                 if(user.active){
                                     next(null, user)
                                 } else {

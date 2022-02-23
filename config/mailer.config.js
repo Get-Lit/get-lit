@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 
 module.exports.sendActivationEmail = (email, token) => {
     transporter.sendMail({
-        from: `Example name <${process.env.NM_USER}>`,
+        from: `Get Lit | Books / Friends <${process.env.NM_USER}>`,
         to: email,
         subject: "Thanks for joining us",
         html: template.generateEmail(token)
