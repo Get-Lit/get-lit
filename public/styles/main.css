@@ -75,7 +75,7 @@ footer {
 }
 .signup-form h2 {
 	color: #484131;
-	margin: 0 0 15px;
+	margin: 0 0 25px;
 	position: relative;
 	text-align: center;
 }
@@ -140,14 +140,15 @@ footer {
 	text-decoration: underline;
 }
 
-.btn {
+.btn, #google-login-btn, #google-signup-btn {
 	color: #fff;
 	background-color: #484131;
 }
 
-.btn:hover {
+.btn:hover, #google-login-btn:hover {
 	color: #fff;
 	background-color: #96951B;
+	text-decoration: none;
 }
 
 .signup-btn-div {
