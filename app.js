@@ -10,8 +10,6 @@ require('./config/db.config');
 require('./config/hbs.config');
 require('./config/passport.config');
 
-const sessionConfig = require('./config/session.config');
-
 const app = express();
 
 // Middlewares
@@ -19,10 +17,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 
+// Config Session
+const sessionConfig = require('./config/session.config');
+app.use(sessionConfig);
 
 // Config HBS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+// Passport Middlewares
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Config routes
 const router = require('./config/routes.config');
