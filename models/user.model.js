@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        default: ""
+        default: "https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
     },
     active: {
         type: Boolean,
@@ -43,8 +43,9 @@ const userSchema = new mongoose.Schema({
         }
     },
     role: {
-        type: [ String ],
-        enum: [ "god", "master", "moderator", "regular" ]
+        type: String,
+        enum: [ "god", "master", "moderator", "regular" ],
+        default: 'regular'
     }
 }, { timestamps: true });
 
@@ -73,7 +74,7 @@ userSchema.pre('save', function(next) {
 userSchema.methods.checkPassword = function(password){
     const user = this;
     
-    return bcrypt.compare('password', user.password);
+    return bcrypt.compare(password, user.password);
 }
 
 const User = mongoose.model('User', userSchema);

@@ -95,7 +95,7 @@ module.exports.generateEmail = (token) => {
   
       <div
          style="font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:11px;line-height:1;text-align:left;color:#000000;"
-      ><span style="font-size: 11px">Example mailer</span></div>
+      ><span style="font-size: 11px">Get Lit | Books & Friends</span></div>
   
                 </td>
               </tr>
@@ -161,7 +161,7 @@ module.exports.generateEmail = (token) => {
   
       <div
          style="font-family:Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"
-      ><p><span style="color: rgb(106, 138, 162);"><span style="font-weight: bold;"><span style="font-size: 16px;">Thanks for joining Example</span></span>
+      ><p><span style="color: rgb(106, 138, 162);"><span style="font-weight: bold;"><span style="font-size: 16px;">Thanks for joining Get Lit</span></span>
             </span>
           </p></div>
   

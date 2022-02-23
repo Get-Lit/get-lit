@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const passport = require('passport');
+const mailer = require('../config/mailer.config');
 
+
+// Sign up controllers
 module.exports.signup = (req, res, next) => {
     res.render('auth/signup');
 }
@@ -13,12 +16,10 @@ module.exports.doSignup = (req, res, next) => {
         res.render('auth/signup', { errors, user });
     }
 
-    User.findOne({ email: user.email, username: user.username })
+    User.findOne({ email: user.email })
         .then((userFound) => {
-            if (userFound.email) {
+            if (userFound) {
                 renderWithErrors({ email: 'Email already in use.' })
-            } else if (userFound.username) {
-                renderWithErrors({ username: 'Username not available.' })
             } else {
                 if (req.file) {
                     user.image = req.file.path
@@ -39,4 +40,55 @@ module.exports.doSignup = (req, res, next) => {
                 next(error)
             }
         })
+};
+
+// Activate controller
+module.exports.activate = (req, res, next) => {
+    const activationToken = req.params.token;
+  
+    User.findOneAndUpdate(
+      { activationToken, active: false },
+      { active: true }
+    )
+      .then(() => {
+        res.redirect('/login')
+      })
+      .catch(err => next(err))
+}
+
+
+// Login Controllers
+module.exports.login = (req, res, next) => {
+    res.render('auth/login');
+};
+
+const login = (req, res, next, provider) => {
+    passport.authenticate(provider || 'local-auth', (error, user, validations) => {
+        if(error){
+            next(error);
+        } else if(!user) {
+            res.status(404).render('auth/login', { errors: { email: validations.error } });
+        } else {
+            req.login(user, (loginError) => {
+                if(loginError){
+                    next(loginError);
+                } else {
+                    res.redirect('/profile');
+                }
+            })
+        }
+    })(req, res, next);
+};
+
+module.exports.doLogin = (req, res, next) => {
+    login(req, res, next);
+};
+
+module.exports.doLoginGoogle = (req, res, next) => {
+    login(req, res, next, 'google-auth');
+}
+
+module.exports.logout = (req, res, next) => {
+    req.logout();
+    res.redirect('/login');
 }
