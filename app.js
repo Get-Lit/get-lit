@@ -19,10 +19,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 
+// Config Session
+
 
 // Config HBS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+// Passport Middlewares
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Config routes
 const router = require('./config/routes.config');

@@ -44,7 +44,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: [ String ],
-        enum: [ god, master, moderator, regular ]
+        enum: [ "god", "master", "moderator", "regular" ]
     }
 }, { timestamps: true });
 
