@@ -32,7 +32,6 @@ passport.use('local-auth', new LocalStrategy(
                             if(!match){
                                 next(null, false, { error: 'Wrong email or password' })
                             } else {
-                                next(null, user);
                                 if(user.active){
                                     next(null, user)
                                 } else {
