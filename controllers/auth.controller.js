@@ -21,6 +21,38 @@ module.exports.doSignup = (req, res, next) => {
             if (userFound) {
                 renderWithErrors({ email: 'Email already in use.' })
             } else {
+                return User.findOne({name: user.name})
+                    .then((userFound) => {
+                        if (userFound) {
+                            renderWithErrors({ name: 'Name already in use.' })
+                        } else {
+                            if (req.file) {
+                                user.image = req.file.path
+                            } else {
+                            return User.create(user)
+                                .then((createdUser) => {
+                                    mailer.sendActivationEmail(createdUser.email, createdUser.activationToken)
+                                    res.redirect('/login')
+                                })
+                            }
+                        }
+                    })
+                
+            }
+        })
+        .catch (error => {
+            if (error instanceof mongoose.Error.ValidationError) {
+                renderWithErrors(error.errors)
+            } else {
+                next(error)
+            }
+        })
+    
+        /* User.findOne({ $or: [ { email: user.email }, { name: user.name } ] })
+        .then((userFound) => {
+            if (userFound) {
+                renderWithErrors({ email: 'Email already in use.', name: 'Name already in use.' })
+            } else {
                 if (req.file) {
                     user.image = req.file.path
                 } else {
@@ -39,7 +71,7 @@ module.exports.doSignup = (req, res, next) => {
             } else {
                 next(error)
             }
-        })
+        }) */
 };
 
 // Activate controller
