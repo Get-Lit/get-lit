@@ -8,19 +8,19 @@ const SALT = 10;
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: 'Name is required',
-        minlength: [5, 'Name has to have at least 5 characters']
+        required: 'Name is required.',
+        minlength: [5, 'Name has to have at least 5 characters.']
     },
     email: {
         type: String,
-        required: 'Email is required',
+        required: 'Email is required.',
         unique: true,
-        match: [EMAIL_PATTERN, 'Please use a valid email']
+        match: [EMAIL_PATTERN, 'Please use a valid email.']
     },
     password: {
         type: String,
-        required: 'Password is required',
-        match: [PASSWORD_PATTERN, 'Password needs a minimum of 8 characters with at least one letter and one number']
+        required: 'Password is required.',
+        match: [PASSWORD_PATTERN, 'Password needs a minimum of 8 characters with at least one letter and one number.']
     },
     googleID: {
         type: String

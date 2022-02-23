@@ -25,17 +25,17 @@ passport.use('local-auth', new LocalStrategy(
         User.findOne({ email })
             .then(user => {
                 if(!user){
-                    next(null, false, { error: 'Wrong email or password' })
+                    next(null, false, { error: 'Wrong email or password.' })
                 } else {
                     return user.checkPassword(password)
                         .then(match => {
                             if(!match){
-                                next(null, false, { error: 'Wrong email or password' })
+                                next(null, false, { error: 'Wrong email or password.' })
                             } else {
                                 if(user.active){
                                     next(null, user)
                                 } else {
-                                    next(null, false, { error: 'Please activate your account via email' })
+                                    next(null, false, { error: 'Please activate your account via email.' })
                                 }
                             }
                         })
@@ -75,7 +75,7 @@ passport.use('google-auth', new GoogleStrategy(
                 })
                 .catch(error => next(error));
         } else {
-            next(null, false, { error: 'Something went wrong connecting with Google' })
+            next(null, false, { error: 'Something went wrong connecting with Google.' })
         }
     }
 ));
