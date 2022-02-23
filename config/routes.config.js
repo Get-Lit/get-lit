@@ -15,31 +15,31 @@ const book = require('../controllers/book.controller');
 const room = require('../controllers/room.controller');
 
 // Middlewares
-const authMiddleware = require('../middlewares/auth.middleware');
+const { isAuthenticated, isNotAuthenticated } = require('../middlewares/auth.middleware');
 
 // Misc Routes
 router.get('', misc.home);
 
 // Sign up Routes
-router.get('/signup', auth.signup);
-router.post('/signup', auth.doSignup);
+router.get('/signup', isNotAuthenticated, auth.signup);
+router.post('/signup', isNotAuthenticated, auth.doSignup);
 
-router.get('/activate/:token', auth.activate);
+router.get('/activate/:token', isNotAuthenticated, auth.activate);
 
 // Log in Routes
-router.get('/login', auth.login);
-router.post('/login', auth.doLogin);
+router.get('/login', isNotAuthenticated, auth.login);
+router.post('/login', isNotAuthenticated, auth.doLogin);
 
-router.get('/login/google', passport.authenticate('google-auth', { scope: SCOPES  }));
-router.get('/auth/google/callback', auth.doLoginGoogle);
+router.get('/login/google', isNotAuthenticated, passport.authenticate('google-auth', { scope: SCOPES  }));
+router.get('/auth/google/callback', isNotAuthenticated, auth.doLoginGoogle);
 
-router.get('/logout', auth.logout);
+router.get('/logout', isAuthenticated, auth.logout);
 
 
 
 
 
 // Profile Routes
-router.get('/profile', user.profile);
+router.get('/profile', isAuthenticated, user.profile);
 
 module.exports = router;
