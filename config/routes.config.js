@@ -45,4 +45,8 @@ router.get('/profile', isAuthenticated, user.profile);
 router.get('/books', book.list)
 router.get('/books/:id', book.detail)
 
+// Room Routes
+router.get('/rooms', room.list);
+router.get('/rooms/:id', room.detail);
+
 module.exports = router;
