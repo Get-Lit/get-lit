@@ -19,20 +19,21 @@ module.exports.doSignup = (req, res, next) => {
     User.findOne({ email: user.email })
         .then((userFound) => {
             if (userFound) {
-                renderWithErrors({ email: 'Email already in use.' })
+                renderWithErrors({ email: 'Email already in use.' });
             } else {
                 return User.findOne({name: user.name})
                     .then((userFound) => {
                         if (userFound) {
-                            renderWithErrors({ name: 'Name already in use.' })
+                            renderWithErrors({ name: 'Name already in use.' });
                         } else {
                             if (req.file) {
-                                user.image = req.file.path
+                                user.image = req.file.path;
                             } else {
                             return User.create(user)
                                 .then((createdUser) => {
-                                    mailer.sendActivationEmail(createdUser.email, createdUser.activationToken)
-                                    res.redirect('/login')
+                                    mailer.sendActivationEmail(createdUser.email, createdUser.activationToken);
+                                    req.flash('flashMessage', 'We have send you an email to complete your registration');
+                                    res.redirect('/login');
                                 })
                             }
                         }
@@ -46,32 +47,7 @@ module.exports.doSignup = (req, res, next) => {
             } else {
                 next(error)
             }
-        })
-    
-        /* User.findOne({ $or: [ { email: user.email }, { name: user.name } ] })
-        .then((userFound) => {
-            if (userFound) {
-                renderWithErrors({ email: 'Email already in use.', name: 'Name already in use.' })
-            } else {
-                if (req.file) {
-                    user.image = req.file.path
-                } else {
-                return User.create(user)
-                    .then((createdUser) => {
-                        mailer.sendActivationEmail(createdUser.email, createdUser.activationToken)
-                        res.redirect('/login')
-                    })
-                }
-                
-            }
-        })
-        .catch (error => {
-            if (error instanceof mongoose.Error.ValidationError) {
-                renderWithErrors(error.errors)
-            } else {
-                next(error)
-            }
-        }) */
+        });
 };
 
 // Activate controller
@@ -83,7 +59,8 @@ module.exports.activate = (req, res, next) => {
       { active: true }
     )
       .then(() => {
-        res.redirect('/login')
+        req.flash('flashMessage', 'Thanks for activating your account!')
+        res.redirect('/login');
       })
       .catch(err => next(err))
 }
@@ -105,6 +82,7 @@ const login = (req, res, next, provider) => {
                 if(loginError){
                     next(loginError);
                 } else {
+                    req.flash('flashMessage', `Welcome back ${user.name}`);
                     res.redirect('/profile');
                 }
             })
