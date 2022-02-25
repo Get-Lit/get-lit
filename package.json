@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -e hbs,css,js,html app.js"
+    "dev": "nodemon -e hbs,css,js,html app.js",
+    "seeds": "node bin/seeds.js"
   },
   "repository": {
     "type": "git",

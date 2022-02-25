@@ -40,4 +40,9 @@ router.get('/logout', isAuthenticated, auth.logout);
 // Profile Routes
 router.get('/profile', isAuthenticated, user.profile);
 
+
+// Book Routes
+router.get('/books', book.list)
+router.get('/books/:id', book.detail)
+
 module.exports = router;

@@ -32,7 +32,7 @@ module.exports.doSignup = (req, res, next) => {
                             return User.create(user)
                                 .then((createdUser) => {
                                     mailer.sendActivationEmail(createdUser.email, createdUser.activationToken);
-                                    req.flash('flashMessage', 'We have send you an email to complete your registration');
+                                    req.flash('flashMessage', 'We have send you an email to complete your registration.');
                                     res.redirect('/login');
                                 })
                             }
