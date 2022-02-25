@@ -321,3 +321,10 @@ footer {
 	border-radius: 4%;
 	margin-top: 30px;
 }
+
+/* Book List */
+#room-card {
+	max-width: 300px;
+	border-radius: 4%;
+	margin-top: 30px;
+}

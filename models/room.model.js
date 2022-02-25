@@ -9,7 +9,6 @@ const roomSchema = new Schema ({
     book: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Book',
-        required: true
     },
     participants: {
         type: [mongoose.Schema.Types.ObjectId],
@@ -17,7 +16,6 @@ const roomSchema = new Schema ({
     },
     creationDate: {
         type: Date,
-        required: true
     }
 }, { timestamps: true });
 
