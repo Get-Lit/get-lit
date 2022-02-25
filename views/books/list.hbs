@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row d-flex justify-content-around">
+    {{#each books as |book|}}
+    <div class="card" id="book-card">
+        <img class="card-img-top" src="" alt="Book cover">
+        <div class="card-body">
+            <h4 class="card-title">{{ book.title }}</h4>
+            <p class="card-text">By {{ book.author }}</p>
+            <a href="/books/{{book._id}}" class="btn">See more</a>
+        </div>
+    </div>
+    {{/each}}
+    </div>
+</div>

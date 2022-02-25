@@ -314,3 +314,10 @@ footer {
 	min-width: 10px !important;
 	padding: .375rem;
 }
+
+/* Book List */
+#book-card {
+	max-width: 300px;
+	border-radius: 4%;
+	margin-top: 30px;
+}

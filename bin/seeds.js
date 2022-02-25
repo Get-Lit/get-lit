@@ -1,0 +1,23 @@
+const mongoose = require('mongoose')
+const books = require('../data/books.json')
+const Book = require('../models/book.model')
+
+require('../config/db.config')
+
+mongoose.connection.once('open', () => {
+    console.log(`Connected to the database ${mongoose.connection.db.databaseName}!`)
+
+    mongoose.connection.db
+        .dropDatabase()
+            .then(() => console.log('Database dropped.'))
+            .then(() => {
+                books.forEach(book => {
+                    new Book({
+                        ...book,                
+                    })
+                    .save() 
+                    .then((book) => console.log(book))                   
+                });
+            })
+            .catch(err => console.error('mongoose', err))
+})
