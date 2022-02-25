@@ -56,8 +56,6 @@ footer {
 
 
 /* Forms */
-
-
 .form-control {
 	height: 40px;
 	box-shadow: none;
@@ -165,8 +163,8 @@ footer {
 	color: #6c757d;;
 }
 
-/* Footer */
 
+/* Footer */
 .footer-links {
 	color: #fff;
 	background-color: #484131;
@@ -185,8 +183,8 @@ footer {
 	color: #484131;
 }
 
-/* Profile */
 
+/* Profile */
 #profile-div {
 	display: flex;
 	justify-content: space-between;
@@ -214,3 +212,79 @@ footer {
 	background-color: #efede1;
 	border-radius: 5%;
 }
+
+
+/* Error page */
+.center-div {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#error-div {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#error-div > div {
+	text-align: center;
+}
+
+#error-buttons-div {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+}
+
+#error-buttons-div > a {
+	margin: 10px;
+}
+
+
+/* About */
+.github-btn {
+	width: 50px;
+}
+
+.about-div {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.about-div > div {
+	text-align: center;
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 30px;
+}
+
+.about-img {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 20%;
+}
+
+.about-card {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/* .about-div > div > div {
+	margin-right: 50px;
+} */
+
+.max-width {
+	max-width: 350px;
+	padding-left: 5%;
+}
+
+

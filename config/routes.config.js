@@ -19,6 +19,8 @@ const { isAuthenticated, isNotAuthenticated } = require('../middlewares/auth.mid
 
 // Misc Routes
 router.get('', misc.home);
+router.get('/about', misc.about);
+router.get('/contact', misc.contact);
 
 // Sign up Routes
 router.get('/signup', isNotAuthenticated, auth.signup);
@@ -34,10 +36,6 @@ router.get('/login/google', isNotAuthenticated, passport.authenticate('google-au
 router.get('/auth/google/callback', isNotAuthenticated, auth.doLoginGoogle);
 
 router.get('/logout', isAuthenticated, auth.logout);
-
-
-
-
 
 // Profile Routes
 router.get('/profile', isAuthenticated, user.profile);
