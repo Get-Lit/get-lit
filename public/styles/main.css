@@ -143,6 +143,7 @@ footer {
 	width: 100%;
 	color: #fff;
 	background-color: #484131;
+	letter-spacing: 1px;
 }
 
 .btn:hover, #google-login-btn:hover, #google-signup-btn:hover {
@@ -287,4 +288,29 @@ footer {
 	padding-left: 5%;
 }
 
+/* Toast Div */
+#toast-div {
+	background-color: #96951b;
+	font-size: 16px;
+	width: 300px;
+}
 
+.toast-body {
+	color: #efede1;
+}
+
+/* Hidden Password */
+.password-input-div {
+	display: flex;
+	flex-direction: row;
+}
+
+.password-input-div input {
+	width: 89%;
+}
+
+.password-input-div button {
+	width: 11%;
+	min-width: 10px !important;
+	padding: .375rem;
+}
