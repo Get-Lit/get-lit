@@ -1,7 +1,9 @@
-<div class="container">
-    {{#if book}}<h1>Rooms of {{book.title}}</h1>
+<div class="container mt-5">
+    
+    {{#if book}}<h1>Rooms for {{book.title}} - {{book.author}}</h1>
     {{else}}<h1>All rooms</h1>
     {{/if}}
+
     <div class="row d-flex justify-content-around">
     {{#if rooms}}
         {{#each rooms as |room|}}
@@ -15,9 +17,8 @@
         </div>
         {{/each}}
     {{else}}
-        <h3>There are no rooms at the moment.</h3>
-        <p>Create a new one.</p>
+        <h4>There are no rooms at the moment. Create a new one and start commenting!</h3>
     {{/if}}
-    <a class="btn" href="/rooms/create">CREATE ROOM</a>
     </div>
+    <a class="btn w-25 mt-5" href="/rooms/create">CREATE NEW ROOM</a>
 </div>
