@@ -4,7 +4,13 @@ const Schema = mongoose.Schema;
 const roomSchema = new Schema ({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
+    },
+    description: {
+        type: String,
+        required: true,
+        minlength: [30, 'Description has to be at least 30 characters long.']
     },
     book: {
         type: mongoose.Schema.Types.ObjectId,
@@ -13,9 +19,6 @@ const roomSchema = new Schema ({
     participants: {
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'User'
-    },
-    creationDate: {
-        type: Date,
     }
 }, { timestamps: true });
 

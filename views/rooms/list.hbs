@@ -1,15 +1,21 @@
 <div class="container">
     <h1>Rooms</h1>
     <div class="row d-flex justify-content-around">
-    {{#each rooms as |room|}}
-    <div class="card" id="room-card">
-        <img class="card-img-top" src="" alt="Room cover">
-        <div class="card-body">
-            <h4 class="card-title">{{ room.name }}</h4>
-            <p class="card-text">Created at {{ room.createdAt }}</p>
-            <a href="/rooms/{{room._id}}" class="btn">See more</a>
+    {{#if rooms}}
+        {{#each rooms as |room|}}
+        <div class="card" id="room-card">
+            <img class="card-img-top" src="" alt="Room cover">
+            <div class="card-body">
+                <h4 class="card-title">{{ room.name }}</h4>
+                <p class="card-text">Created at {{ room.createdAt }}</p>
+                <a href="/rooms/{{room._id}}" class="btn">See more</a>
+            </div>
         </div>
-    </div>
-    {{/each}}
+        {{/each}}
+    {{else}}
+        <h3>There are no rooms at the moment.</h3>
+        <p>Create a new one.</p>
+    {{/if}}
+    <a class="btn" href="/rooms/create">CREATE ROOM</a>
     </div>
 </div>

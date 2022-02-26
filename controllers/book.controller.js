@@ -19,3 +19,12 @@ module.exports.detail = (req, res, next) => {
         })
         .catch(err => next(err))
 }
+
+module.exports.rooms = (req, res, next) => {
+    Book.findById(req.params.id)
+        .populate('rooms')
+        .then(bookFound => {
+            res.render('rooms/list', { rooms: bookFound.rooms })
+        })
+        .catch(error => next(error));
+}
