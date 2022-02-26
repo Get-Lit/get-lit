@@ -24,7 +24,8 @@ module.exports.rooms = (req, res, next) => {
     Book.findById(req.params.id)
         .populate('rooms')
         .then(bookFound => {
-            res.render('rooms/list', { rooms: bookFound.rooms })
+            console.log(bookFound.rooms)
+            res.render('rooms/list', { rooms: bookFound.rooms, book: bookFound })
         })
         .catch(error => next(error));
 }

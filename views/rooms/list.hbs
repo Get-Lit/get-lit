@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Rooms</h1>
+    <h1>Rooms of {{book.title}}</h1>
     <div class="row d-flex justify-content-around">
     {{#if rooms}}
         {{#each rooms as |room|}}
@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">{{ room.name }}</h4>
                 <p class="card-text">Created at {{ room.createdAt }}</p>
-                <a href="/rooms/{{room._id}}" class="btn">See more</a>
+                <a href="/rooms/{{room._id}}" class="btn">ENTER ROOM</a>
             </div>
         </div>
         {{/each}}
