@@ -42,14 +42,14 @@ router.get('/profile', isAuthenticated, user.profile);
 
 
 // Book Routes
-router.get('/books', book.list)
-router.get('/books/:id/rooms', book.rooms)
-router.get('/books/:id', book.detail)
+router.get('/books', book.list);
+router.get('/books/:id/rooms', book.rooms);
+router.get('/books/:id', book.detail);
 
 // Room Routes
 router.get('/rooms', room.list);
-router.get('/rooms/create', room.create);
-router.post('/rooms/create', room.doCreate);
+router.get('/rooms/create', isAuthenticated, room.create);
+router.post('/rooms/create', isAuthenticated, room.doCreate);
 router.get('/rooms/:id', room.detail);
 
 module.exports = router;

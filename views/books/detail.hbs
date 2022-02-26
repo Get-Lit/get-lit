@@ -1,7 +1,8 @@
-book detail
-
-- name
-- author
-- etc
-- enlace a rooms
-<a class="btn" href="/books/{{book._id}}/rooms">See Rooms</a>
+<div id="book-detail" class="align-items-center">
+    <img src="{{book.cover}}" alt="Book cover" class="m-5">
+    <div class="m-5">
+        <h2>{{book.title}}</h1>
+        <p>{{book.synopsis}}</p>
+        <a class="btn w-25 mt-5" href="/books/{{book._id}}/rooms">SEE ROOMS</a>
+    </div>
+</div>

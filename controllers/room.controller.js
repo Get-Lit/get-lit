@@ -3,6 +3,8 @@ const { resolveHostname } = require('nodemailer/lib/shared');
 const Book = require('../models/book.model');
 const Room = require('../models/room.model');
 
+
+// Show all rooms
 module.exports.list = (req, res, next) => {
     Room.find()
         .then(rooms => {
@@ -11,6 +13,8 @@ module.exports.list = (req, res, next) => {
         .catch(error => next(error));
 };
 
+
+// Show details of specific room
 module.exports.detail = (req, res, next) => {
     Room.findById(req.params.id)
         .then(room => {
@@ -19,6 +23,8 @@ module.exports.detail = (req, res, next) => {
         .catch(error => next(error));
 };
 
+
+// Create new room
 module.exports.create = (req, res, next) => {
     Book.find()
         .then(books => {

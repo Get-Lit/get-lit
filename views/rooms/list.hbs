@@ -1,13 +1,15 @@
 <div class="container">
-    <h1>Rooms of {{book.title}}</h1>
+    {{#if book}}<h1>Rooms of {{book.title}}</h1>
+    {{else}}<h1>All rooms</h1>
+    {{/if}}
     <div class="row d-flex justify-content-around">
     {{#if rooms}}
         {{#each rooms as |room|}}
         <div class="card" id="room-card">
-            <img class="card-img-top" src="" alt="Room cover">
+            <img class="card-img-top" src="{{book.cover}}" alt="Room cover">
             <div class="card-body">
                 <h4 class="card-title">{{ room.name }}</h4>
-                <p class="card-text">Created at {{ room.createdAt }}</p>
+                <p class="card-text">{{ room.description }}</p>
                 <a href="/rooms/{{room._id}}" class="btn">ENTER ROOM</a>
             </div>
         </div>

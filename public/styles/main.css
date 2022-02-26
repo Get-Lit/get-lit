@@ -317,12 +317,39 @@ footer {
 
 /* Book List */
 #book-card {
-	max-width: 300px;
+	max-width: 400px;
 	border-radius: 4%;
 	margin-top: 30px;
+	display: flex;
+	flex-direction: row;
+	max-height: 350px;
 }
 
-/* Book List */
+#book-card > img {
+	width: 150px;
+}
+
+#book-card > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+/* Book Detail */
+#book-detail {
+	max-width: 1300px;
+	display: flex;
+	flex-direction: row;
+}
+
+#book-detail > img {
+	width: 300px;	
+
+}
+
+
+/* Room List */
 #room-card {
 	max-width: 300px;
 	border-radius: 4%;

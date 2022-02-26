@@ -9,6 +9,12 @@ const bookSchema = new mongoose.Schema({
         type: String,
         required: 'Author is required',
     },
+
+    cover: {
+        type: String,
+        default: "https://www.abbeville.com/assets/common/images/edition_placeholder.png"
+    },
+
     year: {
         type: Number
     },
@@ -20,7 +26,6 @@ const bookSchema = new mongoose.Schema({
     },
     synopsis: {
         type: String,
-        maxlength: [300, 'Synopsis has to be less than 300 characters']
     },
     reviews: {
         type: mongoose.Schema.Types.ObjectId,
