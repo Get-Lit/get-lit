@@ -1,2 +1,20 @@
-<h4 class="card-title">{{ room.name }}</h4>
-<p class="card-text">Created at {{ room.createdAt }}</p>
+<img src="" alt="Book cover">
+<div class="container">
+    <h4 class="card-title">{{ room.name }}</h4>
+    <p>{{ room.description }}</p>
+</div>
+
+{{!-- {{#each comments as |comment|}}
+<div>
+    <p>{{comment.user}}</p>
+    <p>text</p>
+</div>
+<button>Add comment</button>
+{{/each}}
+
+<div>
+    <h2>Participants</h2>
+    {{#each room.participants as |participant|}}
+    {{ participant.image }}
+    {{/each}}
+</div> --}}

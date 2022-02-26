@@ -26,11 +26,21 @@ const bookSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
     },
-    rooms: {
-        type: [ mongoose.Schema.Types.ObjectId ],
-        ref: 'Room'
-    }
-}, { timestamps: true });
+    // rooms: {
+    //     type: [ mongoose.Schema.Types.ObjectId ],
+    //     ref: 'Room'
+    // }
+}, { timestamps: true, 
+    toJSON: {
+        virtuals: true
+    } });
+
+bookSchema.virtual('rooms', {
+    ref: 'Room',
+    localField: '_id',
+    foreignField: 'book',
+    justOne: false
+})
 
 const Book = mongoose.model('Book', bookSchema);
 
