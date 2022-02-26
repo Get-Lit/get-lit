@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { resolveHostname } = require('nodemailer/lib/shared');
+const Book = require('../models/book.model');
 const Room = require('../models/room.model');
 
 module.exports.list = (req, res, next) => {
@@ -17,3 +18,34 @@ module.exports.detail = (req, res, next) => {
         })
         .catch(error => next(error));
 };
+
+module.exports.create = (req, res, next) => {
+    Book.find()
+        .then(books => {
+            console.log(books);
+            res.render('rooms/createRoom', { books });
+        })
+        .catch(error => next(error))
+};
+
+module.exports.doCreate = (req, res, next) => {
+    const room = req.body;
+
+    Room.findOne({ name: room.name })
+        .then(roomFound => {
+            if(roomFound){
+                return Book.find()
+                    .then(books => {
+                        res.render('rooms/createRoom', { errors: { 
+                            name: 'Room name already in use.'
+                        }, room: roomFound, books });
+                    })
+            } else {
+                return Room.create(room)
+                    .then((room) => {
+                        res.redirect(`/rooms/${room._id}`);
+                    })
+            };
+        })
+        .catch(error => next(error));
+}
