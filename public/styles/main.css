@@ -472,3 +472,13 @@ footer {
 	border-radius: 4%;
 	margin-top: 30px;
 }
+
+.book-title-link {
+	color: #96951B;
+	text-decoration: none;
+}
+
+.book-title-link:hover {
+	color: #d8b7af;
+	text-decoration: none;
+}
