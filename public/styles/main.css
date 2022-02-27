@@ -66,7 +66,7 @@ footer {
 	width: 30%;
 }
 
-#home-intro-text {
+#home-intro-text, #home-bookshops-text {
 	margin-top: 100px;
 	width: 40%;
 }
@@ -78,16 +78,18 @@ footer {
 
 #home-why {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: #efede1;
+	padding: 20px 80px 0 0;
 }
 
 #home-why h5 {
 	font-family: 'Mohave', sans-serif;
 	font-style: italic;
-	margin-top: 80px;
+	writing-mode: sideways-lr;
+	letter-spacing: 2px;
+	margin-right: 80px;
 }
 
 #home-why-img img {
@@ -95,7 +97,7 @@ footer {
 }
 
 #home-why-img {
-	margin: -20px 100px 0 0;
+	margin: 30px 40px 0 0;
 }
 
 #home-why-options img {
@@ -107,7 +109,7 @@ footer {
 #home-why-options div {
 	display: flex;
 	justify-content: flex-end;
-	align-items: flex-start;
+	align-items: center;
 	margin-top: 50px;
 }
 
@@ -121,7 +123,7 @@ footer {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 0 0 80px 20px;
+	margin: 10px -230px 80px 0;
 }
 
 #home-why-options {
@@ -129,6 +131,22 @@ footer {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
+	width: 70%;
+}
+
+#home-bookshops img {
+	width: 500px;
+	margin: 130px 0 90px 0;
+}
+
+#home-bookshops .btn {
+	width: 40%;
+	margin-top: 20px;
+}
+
+#home-bookshops h2 {
+	width: 80%;
+	margin-top: 20px;
 }
 
 /* Forms */
