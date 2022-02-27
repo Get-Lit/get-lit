@@ -1,15 +1,16 @@
 <div class="container">
     <div class="row d-flex justify-content-around">
-    {{#each books as |book|}}
-    <div class="card" id="book-card">
-        <img class="card-img-top" src="{{book.cover}}" alt="Book cover">
-        <div class="card-body">
-            <h4 class="card-title text-center">{{ book.title }}</h4>
-            <p class="card-text">Author: {{ book.author }}</p>
-            <a href="/books/{{book._id}}" class="btn">See more</a>
-            <a href="/books/{{book._id}}/rooms" class="btn">Visit rooms</a>
+        {{#each books as |book|}}
+        <div class="card" id="book-card">
+            <img class="card-img-top" src="{{book.cover}}" alt="Book cover">
+            <div class="card-body">
+                <h4 class="card-title text-center">{{ book.title }}</h4>
+                <p class="card-text">Author: {{ book.author }}</p>
+                <a href="/books/{{book._id}}" class="btn">See more</a>
+                <a href="/books/{{book._id}}/rooms" class="btn">Visit rooms</a>
+            </div>
         </div>
+        {{/each}}
     </div>
-    {{/each}}
-    </div>
+    <a class="btn" href="/books/create">ADD NEW BOOK</a>
 </div>

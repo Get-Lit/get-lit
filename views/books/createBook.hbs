@@ -1,0 +1,34 @@
+<div class="signup-form mb-5">
+    <form action="/books/search" method="GET">
+		<h2>Search Book</h2>
+        <div class="form-group">
+        	<input type="text" class="form-control" name="title" placeholder="Title" required="required">
+        </div>
+        <div class="form-group">
+        	<textarea type="text" class="form-control" name="author" placeholder="Author"></textarea>
+        </div>
+		<div class="form-group signup-btn-div">
+            <button type="submit" class="btn btn-lg btn-block">SEARCH BOOK</button>
+        </div>
+    </form>
+</div>
+{{#if books}}
+    <div class="row d-flex justify-content-around" id="books-found">
+        {{#each books as |book|}}
+            {{#with volumeInfo}}
+            <div class="card" id="book-card">
+                <img class="card-img-top" src="https://www.abbeville.com/assets/common/images/edition_placeholder.png" alt="Book cover">
+                <div class="card-body">
+                    <h4 class="card-title text-center">{{ title }}</h4>
+                    <p class="card-text">Author: {{ author }}</p>
+                    <p class="card-text">Published Date: {{ publishedDate }}</p>
+                    <p class="card-text">Pages: {{ pageCount }}</p>
+                    <form action="/books/create" method="POST">
+                        <button type="submit" class="btn btn-lg btn-block">ADD BOOK</button>
+                    </form>
+                </div>
+            </div>
+            {{/with}}
+        {{/each}}
+    </div>
+{{/if}}

@@ -45,6 +45,9 @@ router.post('/comment/:id', isAuthenticated, user.doComment);
 // Book Routes
 router.get('/books', book.list);
 router.get('/books/:id/rooms', book.rooms);
+router.get('/books/create', book.add);
+router.get('/books/search', book.search);
+/* router.post('/books/new', book.doAdd); */
 router.get('/books/:id', book.detail);
 
 // Room Routes

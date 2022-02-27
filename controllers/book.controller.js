@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Book = require('../models/book.model');
+const axios = require('axios');
 
 
 // List all books
@@ -34,3 +35,21 @@ module.exports.rooms = (req, res, next) => {
         })
         .catch(error => next(error));
 }
+
+// Add new books
+module.exports.add = (req, res, next) => {
+    res.render('books/createBook');
+}
+
+module.exports.search = (req, res, next) => {
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.query.title}&inauthor=${req.query.author}&intitle=${req.query.title}`)
+        .then(response => {
+            const books = response.data.items;
+            res.render('books/createBook', { books });
+        })
+        .catch(error => console.log(error))
+}
+
+/* module.exports.doAdd = (req, res, next) => {
+    
+} */
