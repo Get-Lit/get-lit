@@ -20,8 +20,19 @@ const roomSchema = new Schema ({
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'User'
     }
-}, { timestamps: true });
+}, { timestamps: true,
+    toJSON: {
+        virtuals: true
+    } });
+
+roomSchema.virtual('comments', {
+    ref: 'Comment',
+    localField: '_id',
+    foreignField: 'room',
+    justOne: false
+})
 
 const Room = mongoose.model('Room', roomSchema);
+
 module.exports = Room;
 

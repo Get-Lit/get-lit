@@ -7,15 +7,10 @@ const commentSchema = new Schema({
         ref: 'User',
         required: true
     },
-    book: {
+    room: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Book',
+        ref: 'Room',
         required: true
-    },
-    title: {
-        type: String,
-        required: true,
-        minLength: [5, 'The name must contain at least 5 characters.']
     },
     content: {
         type: String,
@@ -29,4 +24,5 @@ const commentSchema = new Schema({
 }, { timestamps: true });
 
 const Comment = mongoose.model('Comment', commentSchema);
+
 module.exports = Comment;

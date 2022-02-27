@@ -468,17 +468,17 @@ footer {
 
 /* Room List */
 #room-card {
-	max-width: 300px;
+	width: 100%;
 	border-radius: 4%;
 	margin-top: 30px;
 }
 
-.book-title-link {
+.title-link {
 	color: #96951B;
 	text-decoration: none;
 }
 
-.book-title-link:hover {
+.title-link:hover {
 	color: #d8b7af;
 	text-decoration: none;
 }
