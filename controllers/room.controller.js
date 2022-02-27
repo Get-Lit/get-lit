@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { resolveHostname } = require('nodemailer/lib/shared');
 const Book = require('../models/book.model');
 const Room = require('../models/room.model');
+const Comment = require('../models/comment.model');
 
 
 // Show all rooms
@@ -17,7 +18,9 @@ module.exports.list = (req, res, next) => {
 // Show details of specific room
 module.exports.detail = (req, res, next) => {
     Room.findById(req.params.id)
+        .populate('comments')
         .then(room => {
+            console.log(room.comments)
             res.render('rooms/detail', { room })
         })
         .catch(error => next(error));
