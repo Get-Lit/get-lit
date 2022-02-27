@@ -1,6 +1,6 @@
 <div class="container mt-5">
     
-    {{#if book}}<h1>Rooms for <a class="book-title-link" href="/books/{{book._id}}">{{book.title}} - {{book.author}}</a></h1>
+    {{#if book}}<h1>Rooms for <a class="title-link" href="/books/{{book._id}}">{{book.title}} - {{book.author}}</a></h1>
     {{else}}<h1>All rooms</h1>
     {{/if}}
 
@@ -10,17 +10,16 @@
         <div class="card" id="room-card">
             <img class="card-img-top" src="{{book.cover}}" alt="Room cover">
             <div class="card-body">
-                <h4 class="card-title">{{ room.name }}</h4>
+                <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title">{{ room.name }}</h4></a>
                 <p class="card-text">{{ room.description }}</p>
-                <a href="/rooms/{{room._id}}" class="btn">ENTER ROOM</a>
             </div>
         </div>
         {{/each}}
     {{else}}
     <div class="center-div">
         <div id="error-div" class="mt-5">
-        <h4>There are no rooms at the moment. Create a new one and start commenting!</h3>
-        <img src="/img/empty.svg" alt="Empty icon" class="w-50">
+            <h4>There are no rooms at the moment. Create a new one and start commenting!</h3>
+            <img src="/img/empty.svg" alt="Empty icon" class="w-50">
         </div>
     </div>
     {{/if}}
