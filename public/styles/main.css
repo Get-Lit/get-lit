@@ -161,8 +161,8 @@ footer {
 	border-radius: 3px;
 }
 .signup-form {
-	width: 450px;
-	margin: 50px auto;
+	width: 500px;
+	margin: 30px auto;
 	padding: 30px 0;
   	font-size: 15px;
 }
@@ -256,6 +256,29 @@ footer {
 .upload-image {
 	background-color: rgba(255, 255, 255, 0);
 	color: #6c757d;;
+}
+
+#sign-up-image {
+	margin-top: 140px;
+	max-width: 600px;
+}
+
+#sign-up-image > img {
+	width: 85%;
+	margin-top: 80px;
+}
+
+#login-image {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 90px;
+	max-width: 600px;
+}
+
+#login-image > img {
+	width: 70%;
+	margin-top: 70px;
 }
 
 

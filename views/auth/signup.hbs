@@ -1,39 +1,51 @@
-<div class="signup-form">
-    <form action="/signup" method="post">
-		<h2>Sign up</h2>
-		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
-        <div class="form-group">
-        	<input type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" name="name" placeholder="Name"  required="required" value="{{user.name}}">
-            {{#if errors.name}} <div class="invalid-feedback">{{errors.name}}</div>{{/if}}
-        </div>
-        <div class="form-group">
-        	<input type="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" name="email" placeholder="Email" required="required" value="{{user.email}}">
-            {{#if errors.email}} <div class="invalid-feedback">{{errors.email}}</div>{{/if}}
-        </div>
-		<div class="form-group">
-            <div class="password-input-div">
-                <input type="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" name="password" placeholder="Password" required="required">
-                <button class="btn btn-outline-secondary password-toggle" type="button">
-                    <i class="fa fa-eye-slash fa-fw"></i>
-                </button>
+<div class="container div-flex-row justify-content-around" id="sign-up-page">
+
+     <div id="sign-up-image">
+         <h2>Create an account to join discussion rooms, write comments and reviews... and much more!</h2>
+         <img src="/img/account.svg" alt="Sing up icon">
+     </div>   
+
+    <div class="signup-form">
+        <form action="/signup" method="post">
+            <h2>Sign up</h2>
+            <div class="form-group">
+                <input type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" name="name" placeholder="Name"  required="required" value="{{user.name}}">
+                {{#if errors.name}} <div class="invalid-feedback">{{errors.name}}</div>{{/if}}
             </div>
-            {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}
-        </div>
-		{{!-- <div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
-        </div>         --}}
-        <div class="form-group">
-            <label for="image" class="form-label">User image</label>
-            <input type="file" class="form-control upload-image" name="image">
-        </div>
-        <div class="form-group">
-			<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-		</div>
-		<div class="form-group signup-btn-div">
-            <button type="submit" class="btn btn-lg btn-block">SIGN UP NOW</button>
-            <a href="/login/google" class="btn btn-lg btn-block mt-1" id="google-signup-btn">
-                <i class="fa fa-google"></i>  SIGN UP WITH GOOGLE
-            </a>
-        </div>
-    </form>
+            <div class="form-group">
+                <input type="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" name="email" placeholder="Email" required="required" value="{{user.email}}">
+                {{#if errors.email}} <div class="invalid-feedback">{{errors.email}}</div>{{/if}}
+            </div>
+            <div class="form-group">
+                <div class="password-input-div">
+                    <input type="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" name="password" placeholder="Password" required="required">
+                    <button class="btn btn-outline-secondary password-toggle" type="button">
+                        <i class="fa fa-eye-slash fa-fw"></i>
+                    </button>
+                </div>
+                {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}
+            </div>
+            {{!-- <div class="form-group">
+                <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+            </div>         --}}
+            <div class="form-group">
+                <label for="image" class="form-label">Profile picture:</label>
+                <input type="file" class="form-control upload-image" name="image">
+            </div>
+            <div class="form-group">
+                <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            </div>
+            <div class="form-group signup-btn-div singup-form">
+                <button type="submit" class="btn btn-lg btn-block">SIGN UP NOW</button>
+                <p class="mt-4">— OR —</p>
+                <a href="/login/google" class="btn btn-lg btn-block mt-1" id="google-signup-btn">
+                    <i class="fa fa-google"></i>  SIGN UP WITH GOOGLE
+                </a>
+            </div>
+            <div class="mt-4">
+                <p>You already have an account? <a href="/login">Take me to Login</a></p>
+            </div>
+        </form>
+    </div>
+
 </div>
