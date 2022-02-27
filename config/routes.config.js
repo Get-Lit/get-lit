@@ -39,6 +39,7 @@ router.get('/logout', isAuthenticated, auth.logout);
 
 // Profile Routes
 router.get('/profile', isAuthenticated, user.profile);
+router.post('/comment/:id', isAuthenticated, user.doComment);
 
 
 // Book Routes

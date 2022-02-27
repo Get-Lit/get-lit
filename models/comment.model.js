@@ -15,7 +15,7 @@ const commentSchema = new Schema({
     content: {
         type: String,
         required: true,
-        minlength: [100, 'You  must write at least 100 characters.']
+        // minlength: [100, 'You  must write at least 100 characters.']
     },
     rate: {
         type: Number,
