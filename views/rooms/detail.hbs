@@ -18,15 +18,15 @@
     <div class="card w-75" id="room-card">
         <div class="card-body">
             <div class="d-flex flex-direction-column">
-                <img src="https://simulacionymedicina.es/wp-content/uploads/2015/11/default-avatar-300x300-1.jpg" alt="User's picture" width="50">
-                <h4 class="card-title title-link m-3">{{comment.user}}<h4>
+                <img src="{{comment.userimage}}" alt="User's picture" width="50">
+                <h4 class="card-title title-link m-3">{{comment.username}}<h4>
             </div>
-            <p>{{comment.content}}</p>
+            <p>{{comment.content}}</p>          
         </div>
         <div class="bg-light p-2">
             <h5 class="mt-3">Reply</h5>
             <div>
-                <img src="" width="40">
+                <img src="{{currentUser.image}}" width="40">
                 <textarea class="form-control ml-1 shadow-none textarea"></textarea>
             </div>
 

@@ -7,6 +7,12 @@ const commentSchema = new Schema({
         ref: 'User',
         required: true
     },
+    username:{
+        type: String
+    },
+    userimage:{
+        type: String
+    },
     room: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Room',
@@ -15,7 +21,6 @@ const commentSchema = new Schema({
     content: {
         type: String,
         required: true,
-        // minlength: [100, 'You  must write at least 100 characters.']
     },
     rate: {
         type: Number,
