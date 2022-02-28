@@ -4,7 +4,20 @@
         <div class="card book-card">
             <img class="card-img-top" src="{{book.cover}}" alt="Book cover">
             <div class="card-body">
-                <h4 class="card-title text-center">{{ book.title }}</h4>
+                <div>
+                    <h4 class="card-title">{{ book.title }}</h4>
+                    {{#if ../currentUser}}
+                        <button class="like-button border-0">
+                            <i 
+                                data-id="{{book.id}}"
+                                class="like-action fa fa-heart"
+                                {{#userLikedBook likes=../likes book=book}}icon-liked{{/userLikedBook}}
+                            >
+
+                            </i>
+                        </button>
+                    {{/if}}
+                </div>
                 <p class="card-text">Author: {{ book.author }}</p>
                 <a href="/books/{{book._id}}" class="btn">SEE MORE</a>
                 <a href="/books/{{book._id}}/rooms" class="btn">VISIT ROOMS</a>
@@ -14,3 +27,6 @@
     </div>
     <a class="btn" href="/books/create">ADD NEW BOOK</a>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/axios.js"></script>
