@@ -7,11 +7,22 @@ light-yellow: #FCFAEC
 */
 
 body {
+	min-height: 100vh;
     margin: 0;
     padding: 0;
 	font-family: 'EB Garamond', serif;
 	background-color: #fcfbf7;
 	color: #484131;
+	position: relative;
+}
+
+#page-container {
+	position: relative;
+	min-height: 100vh;
+}
+
+#content-wrap {	
+	padding-bottom: 2.5rem; /* Footer height */
 }
 
 #ul-separated {
@@ -22,8 +33,10 @@ body {
 }
 
 footer {
+	position: absolute;
     bottom: 0;
     width: 100%;
+	height: 2.5rem;
 }
 
 /* Navbar */
@@ -433,20 +446,20 @@ footer {
 }
 
 /* Book List */
-#book-card {
+.book-card {
 	max-width: 400px;
-	border-radius: 4%;
+	border-radius: 10px;
 	margin-top: 30px;
 	display: flex;
 	flex-direction: row;
 	max-height: 350px;
 }
 
-#book-card > img {
+.book-card > img {
 	width: 150px;
 }
 
-#book-card > div {
+.book-card > div {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -462,14 +475,48 @@ footer {
 
 #book-detail > img {
 	width: 300px;	
+}
 
+/* Add Book */
+#add-book-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.search-div form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.search-div {
+	width: 60%;
+	margin: 40px 0 0 0;
+}
+
+.search-div input {
+	height: 40px;
+	width: 50%;
+	margin-right: 10px;
+}
+
+.search-div button {
+	height: 40px;
+	width: 30%;
+	font-size: 14px;
+}
+
+#books-found img {
+	object-fit: contain;
+	width: 100px;
 }
 
 
 /* Room List */
-#room-card {
+.room-card {
 	width: 100%;
-	border-radius: 4%;
+	border-radius: 10px;
 	margin-top: 30px;
 }
 
