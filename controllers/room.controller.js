@@ -18,7 +18,7 @@ module.exports.list = (req, res, next) => {
 // Show details of specific room
 module.exports.detail = (req, res, next) => {
     Room.findById(req.params.id)
-        .populate('comments')
+        .populate({ path: 'comments', populate: { path: 'replies user'}})
         .then(room => {
             console.log(room.comments)
             res.render('rooms/detail', { room })
@@ -41,6 +41,7 @@ module.exports.doCreate = (req, res, next) => {
     const room = req.body;
 
     Room.findOne({ name: room.name })
+        .populate({})
         .then(roomFound => {
             if(roomFound){
                 return Book.find()

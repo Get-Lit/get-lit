@@ -1,5 +1,6 @@
 const Comment = require('../models/comment.model')
 const User = require('../models/user.model');
+const Reply = require('../models/reply.model')
 
 const axios = require('axios');
 
@@ -16,12 +17,24 @@ module.exports.doComment = (req, res, next) => {
     Comment.create({
         room: roomId,
         user: user.id,
-        username: user.name,
-        userimage: user.image,
         content: content
     })
-    .then((createdComment) => {
-        res.redirect(`/rooms/${roomId}`)
+    .then(() => res.redirect(`/rooms/${roomId}`))
+    .catch(error => next(error))
+}
+
+module.exports.doReply = (req, res, next) => {
+    const roomId = req.body.id;
+    const user = req.user;
+    const content = req.body.content;
+    const comment = req.params.id;
+
+    Reply.create({
+        room: roomId,
+        user: user.id,
+        content,
+        comment
     })
+    .then(() => res.redirect(`/rooms/${roomId}`))
     .catch(error => next(error))
 }
