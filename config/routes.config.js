@@ -37,10 +37,11 @@ router.get('/auth/google/callback', isNotAuthenticated, auth.doLoginGoogle);
 
 router.get('/logout', isAuthenticated, auth.logout);
 
-// Profile Routes
+// User Routes
 router.get('/profile', isAuthenticated, user.profile);
 router.post('/comment/:id/reply', isAuthenticated, user.doReply);
 router.post('/comment/:id', isAuthenticated, user.doComment);
+router.post('/like/:id', isAuthenticated, user.doLike);
 
 
 // Book Routes

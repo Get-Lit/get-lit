@@ -45,6 +45,13 @@ bookSchema.virtual('rooms', {
     justOne: false
 })
 
+bookSchema.virtual('likes', {
+    ref: 'Like',
+    localField: '_id',
+    foreignField: 'book',
+    justOne: false
+});
+
 const Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book;

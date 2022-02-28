@@ -465,6 +465,15 @@ footer {
 	justify-content: space-between;
 }
 
+.icon-liked {
+	color: red;
+}
+
+.icon-events-none {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
 
 /* Book Detail */
 #book-detail {
