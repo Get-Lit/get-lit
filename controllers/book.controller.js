@@ -50,6 +50,26 @@ module.exports.search = (req, res, next) => {
         .catch(error => console.log(error))
 }
 
-/* module.exports.doAdd = (req, res, next) => {
-    
-} */
+module.exports.doAdd = (req, res, next) => {
+    console.log(req.body.id);
+    const bookId = req.body.id;
+
+    axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
+        .then(response => {
+            const book = response.data;
+            const year = parseInt(book.volumeInfo.publishedDate.slice(0, 4));
+            
+            return Book.create({
+                title: book.volumeInfo.title,
+                author: book.volumeInfo.authors[0],
+                cover: book.volumeInfo.imageLinks.thumbnail,
+                year: year,
+                pages: book.volumeInfo.pageCount,
+                synopsis: book.volumeInfo.description,
+            })
+                .then((bookCreated) => {
+                    res.redirect(`/books/${bookCreated._id}`);
+                })
+        })
+        .catch(error => next(error));
+}

@@ -7,7 +7,7 @@
     <div class="row d-flex justify-content-around">
     {{#if rooms}}
         {{#each rooms as |room|}}
-        <div class="card" id="room-card">
+        <div class="card room-card">
             <img class="card-img-top" src="{{book.cover}}" alt="Room cover">
             <div class="card-body">
                 <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title">{{ room.name }}</h4></a>
