@@ -6,7 +6,7 @@
 
 {{!-- Crear un nuevo comentario --}}
     <div class="d-flex flex-row mt-4 mb-4">
-        <img src="https://simulacionymedicina.es/wp-content/uploads/2015/11/default-avatar-300x300-1.jpg" width="40">
+        <img src="{{currentUser.image}}" width="40">
         <form action="/comment/{{room._id}}" method="POST">
             <input type="text" name="content" class="form-control" placeholder="Add comment">
             <button class="btn w-25" type="submit">Comment</button>
@@ -28,7 +28,9 @@
             <div>
                 {{#each comment.replies as |reply|}}
                 <div>
-                    {{reply.content}}
+                    <img src="{{reply.user.image}}" alt="User's image" width="25">
+                    <h5>{{reply.user.name}}</h5>
+                    <p>{{reply.content}}</p>
                 </div>
                 {{/each}}
             </div>

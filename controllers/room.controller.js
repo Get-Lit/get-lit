@@ -18,7 +18,8 @@ module.exports.list = (req, res, next) => {
 // Show details of specific room
 module.exports.detail = (req, res, next) => {
     Room.findById(req.params.id)
-        .populate({ path: 'comments', populate: { path: 'replies user'}})
+        .populate({ path: 'comments', populate: { path: 'user'}})
+        .populate({ path: 'comments', populate: { path: 'replies', populate: { path: 'user' }}})
         .then(room => {
             console.log(room.comments)
             res.render('rooms/detail', { room })
