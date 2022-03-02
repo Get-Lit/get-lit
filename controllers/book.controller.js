@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 const Book = require('../models/book.model');
+const Like = require('../models/like.model');
 const axios = require('axios');
 
 
 // List all books
 module.exports.list = (req, res, next) => {
-    Book.find()
-        .then((books) => res.render('books/list', { books }))
+    Like.find({ user: req.user.id})
+        .then(likes => {
+            return Book.find()
+                .then((books) => res.render('books/list', { books, likes }))
+        })
         .catch(error => next(error));
 }
 

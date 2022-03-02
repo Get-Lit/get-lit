@@ -8,10 +8,14 @@
     {{#if rooms}}
         {{#each rooms as |room|}}
         <div class="card room-card">
-            <img class="card-img-top" src="{{book.cover}}" alt="Room cover">
             <div class="card-body">
                 <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title">{{ room.name }}</h4></a>
                 <p class="card-text">{{ room.description }}</p>
+            </div>
+            <div id="participants-div">
+                {{#each room.participants as |user| }}
+                    <img src="{{user.image}}" alt="Participant image">
+                {{/each}}
             </div>
         </div>
         {{/each}}

@@ -39,6 +39,7 @@ router.get('/logout', isAuthenticated, auth.logout);
 
 // User Routes
 router.get('/profile', isAuthenticated, user.profile);
+router.post('/participant/:id', isAuthenticated, user.addParticipant);
 router.post('/comment/:id/reply', isAuthenticated, user.doReply);
 router.post('/comment/:id/delete', isAuthenticated, user.deleteComment);
 router.post('/comment/:id', isAuthenticated, user.doComment);
