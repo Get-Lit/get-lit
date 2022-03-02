@@ -40,9 +40,9 @@ router.get('/logout', isAuthenticated, auth.logout);
 // User Routes
 router.get('/profile', isAuthenticated, user.profile);
 router.post('/comment/:id/reply', isAuthenticated, user.doReply);
+router.post('/comment/:id/delete', isAuthenticated, user.deleteComment);
 router.post('/comment/:id', isAuthenticated, user.doComment);
 router.post('/like/:id', isAuthenticated, user.doLike);
-
 
 // Book Routes
 router.get('/books', book.list);
