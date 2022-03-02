@@ -56,7 +56,6 @@ footer {
 
 .navbar img {
 	width: 130px;
-	margin-bottom: 4%;
 }
 
 .navbar-brand {
@@ -65,6 +64,15 @@ footer {
 
 #ul-separated {
 	margin-right: 2.5%;
+}
+
+.navbar-toggler {
+	background-color: #96951B;
+	margin-right: 2.5%;
+}
+
+.navbar-toggler span {
+	color: white;
 }
 
 /* Home Page */
