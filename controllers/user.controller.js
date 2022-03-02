@@ -59,3 +59,20 @@ module.exports.doLike = (req, res, next) => {
         })
         .catch(error => next(error))
 }
+
+
+// Delete comments and replies
+module.exports.deleteComment = (req, res, next) => {
+    const roomId = req.body.id
+
+    Comment.findByIdAndDelete(req.params.id)
+        .then((commentFound) => {
+            if (commentFound) {
+                res.redirect(`/rooms/${roomId}`)
+            } else {
+                return Reply.findByIdAndDelete(req.params.id)
+                    .then(() => res.redirect(`/rooms/${roomId}`))
+            }
+        })
+        .catch(error => next(error))
+}
