@@ -1,26 +1,29 @@
 <div class="container">
-    <div class="row d-flex justify-content-around">
+    <div class="row d-flex justify-content-around mb-3">
         {{#each books as |book|}}
-        <div class="card book-card">
-            <img class="card-img-top" src="{{book.cover}}" alt="Book cover">
+        <div class="card book-card p-2">
+            <div class="card-img">
+                <img src="{{book.cover}}" alt="Book cover">
+            </div>
             <div class="card-body">
-                <div>
+                <div class="title-and-like">
                     <h4 class="card-title">{{ book.title }}</h4>
                     {{#if ../currentUser}}
                         <button class="like-button border-0">
                             <i 
                                 data-id="{{book.id}}"
-                                class="like-action fa fa-heart"
-                                {{#userLikedBook likes=../likes book=book}}icon-liked{{/userLikedBook}}
+                                class="like-action fa fa-heart {{#userLikedBook likes=../likes book=book}}icon-liked{{/userLikedBook}}"
                             >
 
                             </i>
                         </button>
                     {{/if}}
+                <p class="card-text">{{ book.author }}</p>
                 </div>
-                <p class="card-text">Author: {{ book.author }}</p>
-                <a href="/books/{{book._id}}" class="btn">SEE MORE</a>
-                <a href="/books/{{book._id}}/rooms" class="btn">VISIT ROOMS</a>
+                <div class="book-card-btns">
+                    <a href="/books/{{book._id}}" class="btn mt-auto">SEE MORE</a>
+                    <a href="/books/{{book._id}}/rooms" class="btn mt-1">VISIT ROOMS</a>
+                </div>
             </div>
         </div>
         {{/each}}

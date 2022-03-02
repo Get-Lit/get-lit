@@ -42,7 +42,7 @@ module.exports.add = (req, res, next) => {
 }
 
 module.exports.search = (req, res, next) => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.query.title}&inauthor=${req.query.author}&intitle=${req.query.title}`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.query.title || req.query.author}&inauthor=${req.query.author}&intitle=${req.query.title}`)
         .then(response => {
             const books = response.data.items;
             res.render('books/createBook', { books });
@@ -51,7 +51,6 @@ module.exports.search = (req, res, next) => {
 }
 
 module.exports.doAdd = (req, res, next) => {
-    console.log(req.body.id);
     const bookId = req.body.id;
 
     axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
@@ -59,16 +58,24 @@ module.exports.doAdd = (req, res, next) => {
             const book = response.data;
             const year = parseInt(book.volumeInfo.publishedDate.slice(0, 4));
             
-            return Book.create({
-                title: book.volumeInfo.title,
-                author: book.volumeInfo.authors[0],
-                cover: book.volumeInfo.imageLinks.thumbnail,
-                year: year,
-                pages: book.volumeInfo.pageCount,
-                synopsis: book.volumeInfo.description,
-            })
-                .then((bookCreated) => {
-                    res.redirect(`/books/${bookCreated._id}`);
+            return Book.findOne({ title: book.volumeInfo.title })
+                .then(bookFound => {
+                    if(!bookFound){
+                        return Book.create({
+                            title: book.volumeInfo.title,
+                            author: book.volumeInfo.authors[0],
+                            cover: book.volumeInfo.imageLinks.thumbnail,
+                            year: year,
+                            pages: book.volumeInfo.pageCount,
+                            synopsis: book.volumeInfo.description,
+                        })
+                            .then((bookCreated) => {
+                                res.redirect(`/books/${bookCreated._id}`);
+                            })
+                    } else {
+                        req.flash('flashMessage', 'This book existed already.');
+                        res.redirect(`/books/${bookFound._id}`);
+                    }
                 })
         })
         .catch(error => next(error));
