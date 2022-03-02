@@ -1,8 +1,13 @@
 <div id="book-detail" class="align-items-center container">
     <img src="{{book.cover}}" alt="Book cover" class="m-5">
-    <div class="m-5">
-        <h2>{{book.title}}</h1>
-        <p>{{book.synopsis}}</p>
+    <div class="w-100 m-5">
+        <h1>{{book.title}}</h1>
+        <h5 class="fst-italic">{{book.author}}</h5>
+        <p class="mt-3">{{book.synopsis}}</p>
         <a class="btn w-25 mt-5" href="/books/{{book._id}}/rooms">SEE ROOMS</a>
+        <a class="btn w-25 mt-5" href="/books/{{book._id}}/edit">EDIT BOOK</a>
+        <form action="/books/{{book._id}}/delete" class="d-inline" method="post">
+            <button class="btn w-25 mt-5" type="submit">DELETE BOOK</button>
+        </form>
     </div>
 </div>

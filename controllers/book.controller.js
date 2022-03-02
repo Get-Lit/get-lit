@@ -73,10 +73,36 @@ module.exports.doAdd = (req, res, next) => {
                                 res.redirect(`/books/${bookCreated._id}`);
                             })
                     } else {
-                        req.flash('flashMessage', 'This book existed already.');
+                        req.flash('flashMessage', 'This book already exists.');
                         res.redirect(`/books/${bookFound._id}`);
                     }
                 })
         })
         .catch(error => next(error));
+};
+
+module.exports.delete = (req, res, next) => {
+    Book.findByIdAndDelete(req.params.id)
+        .then(() => {
+            req.flash('flashMessage', 'Book successfully deleted.')
+            res.redirect('/books');
+        })
+        .catch(error => next(error));
 }
+
+module.exports.edit = (req, res, next) => {
+    Book.findById(req.params.id)
+        .then((bookFound) => {
+            res.render('books/edit', { book: bookFound });
+        })
+        .catch(error => next(error));
+};
+
+module.exports.doEdit = (req, res, next) => {
+    Book.findByIdAndUpdate(req.params.id, req.body, { runValidators: true, new: true } )
+        .then((bookFound) => {
+            req.flash('flashMessage', 'Book successfully edited.');
+            res.redirect(`/books/${bookFound._id}`);
+        })
+        .catch(error => next(error));
+};
