@@ -4,5 +4,8 @@
         <h2>{{book.title}}</h1>
         <p>{{book.synopsis}}</p>
         <a class="btn w-25 mt-5" href="/books/{{book._id}}/rooms">SEE ROOMS</a>
+        <form action="/books/{{book._id}}/delete" class="d-inline" method="post">
+            <button class="btn w-25 mt-5" type="submit">DELETE BOOK</button>
+        </form>
     </div>
 </div>

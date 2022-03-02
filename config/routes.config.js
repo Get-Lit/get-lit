@@ -49,13 +49,15 @@ router.get('/books', book.list);
 router.get('/books/:id/rooms', book.rooms);
 router.get('/books/create', book.add);
 router.get('/books/search', book.search);
-router.post('/books/create', book.doAdd);
+router.post('/books/create', isAuthenticated, book.doAdd);
+router.post('/books/:id/delete', isAuthenticated, book.delete);
 router.get('/books/:id', book.detail);
 
 // Room Routes
 router.get('/rooms', room.list);
 router.get('/rooms/create', isAuthenticated, room.create);
 router.post('/rooms/create', isAuthenticated, room.doCreate);
+router.post('/rooms/:id/delete', isAuthenticated, room.delete);
 router.get('/rooms/:id', room.detail);
 
 module.exports = router;
