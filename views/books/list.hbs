@@ -1,4 +1,8 @@
 <div class="container">
+    <div class="row d-flex justify-content-center align-items-center mt-3 mb-3">
+        <h5>Can't find your book?</h5>
+        <a class="btn w-25" href="/books/create">ADD NEW BOOK</a>
+    </div>
     <div class="row d-flex justify-content-around mb-3">
         {{#each books as |book|}}
         <div class="card book-card p-2">
@@ -28,7 +32,6 @@
         </div>
         {{/each}}
     </div>
-    <a class="btn" href="/books/create">ADD NEW BOOK</a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

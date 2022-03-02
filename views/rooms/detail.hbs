@@ -2,6 +2,7 @@
     <div>
         <h1>{{ room.name }}</h1>
         <p>{{ room.description }}</p>
+        <a class="btn w-25" href="/rooms/{{room._id}}/edit">EDIT ROOM</a>
         <form action="/rooms/{{room._id}}/delete" class="d-inline" method="post">
             <button class="btn w-25" type="submit">DELETE ROOM</button>
         </form>

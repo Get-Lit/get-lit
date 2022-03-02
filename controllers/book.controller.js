@@ -89,3 +89,20 @@ module.exports.delete = (req, res, next) => {
         })
         .catch(error => next(error));
 }
+
+module.exports.edit = (req, res, next) => {
+    Book.findById(req.params.id)
+        .then((bookFound) => {
+            res.render('books/edit', { book: bookFound });
+        })
+        .catch(error => next(error));
+};
+
+module.exports.doEdit = (req, res, next) => {
+    Book.findByIdAndUpdate(req.params.id, req.body, { runValidators: true, new: true } )
+        .then((bookFound) => {
+            req.flash('flashMessage', 'Book successfully edited.');
+            res.redirect(`/books/${bookFound._id}`);
+        })
+        .catch(error => next(error));
+};

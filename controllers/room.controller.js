@@ -62,8 +62,25 @@ module.exports.doCreate = (req, res, next) => {
 module.exports.delete = (req, res, next) => {
     Room.findByIdAndDelete(req.params.id)
         .then(() => {
-            req.flash('flashMessage', 'Room successfully deleted.')
+            req.flash('flashMessage', 'Room successfully deleted.');
             res.redirect('/rooms');
         })
         .catch(error => next(error));
-}
+};
+
+module.exports.edit = (req, res, next) => {
+    Room.findById(req.params.id)
+        .then((roomFound) => {
+            res.render('rooms/edit', { room: roomFound });
+        })
+        .catch(error => next(error));
+};
+
+module.exports.doEdit = (req, res, next) => {
+    Room.findByIdAndUpdate(req.params.id, req.body, { runValidators: true, new: true } )
+        .then((roomFound) => {
+            req.flash('flashMessage', 'Room successfully edited.');
+            res.redirect(`/rooms/${roomFound._id}`);
+        })
+        .catch(error => next(error));
+};

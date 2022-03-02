@@ -1,0 +1,19 @@
+<div class="container div-flex-row justify-content-around" id="edit-book-page">
+    <div class="signup-form mb-5">
+        <form action="/books/{{book.id}}/edit" method="POST">
+            <h2>Edit Book</h2>
+            <div class="form-group">
+                <input type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" name="title" required="required" value="{{book.title}}">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control {{#if errors.author}}is-invalid{{/if}}" name="author" required="required" value="{{book.author}}">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control {{#if errors.synopsis}}is-invalid{{/if}}" name="synopsis">{{book.synopsis}}</textarea>
+            </div>
+            <div class="form-group signup-btn-div">
+                <button type="submit" class="btn btn-lg btn-block">EDIT BOOK</button>
+            </div>
+        </form>
+    </div>
+</div>
