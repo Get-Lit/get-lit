@@ -16,3 +16,20 @@ const likeBook = (id, icon) => httpClient.post(`/like/${id}`)
             likeBook(event.target.dataset.id, event.target);
         }
     })
+
+const addParticipant = (id, button) => httpClient.post(`/participant/${id}`)
+    .then((response) => {
+        console.log(response);
+        if(response.data.success){
+            button.innerHTML = "JOIN ROOM";
+        } else {
+            button.innerHTML = "LEAVE ROOM";
+        }
+    })
+    .catch(error => next(error));
+
+    const joinButton = document.getElementById('join-room-btn')
+
+    joinButton.onclick = (event) => {
+        addParticipant(event.target.dataset.id, event.target);
+    }

@@ -2,6 +2,8 @@ const Comment = require('../models/comment.model')
 const User = require('../models/user.model');
 const Reply = require('../models/reply.model');
 const Like = require('../models/like.model');
+const Room = require('../models/room.model');
+const Participant = require('../models/participant.model')
 
 module.exports.profile = (req, res, next) => {
     res.render('profile');
@@ -76,3 +78,24 @@ module.exports.deleteComment = (req, res, next) => {
         })
         .catch(error => next(error))
 }
+
+module.exports.addParticipant = (req, res, next) => {
+    const roomId = req.params.id;
+    const userId = req.user.id;
+
+    Participant.findOneAndDelete({ room: roomId, user: userId })
+        .then(participant => {
+            if(participant) {
+            res.status(200).send({ success: true});
+            } else {
+                return Participant.create({
+                    room: roomId,
+                    user: userId
+                })
+                .then(() => {
+                    res.status(200).send({ success: false});
+                })
+            }
+        })
+        .catch(error => next(error))
+};
