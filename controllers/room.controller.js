@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { resolveHostname } = require('nodemailer/lib/shared');
 const Book = require('../models/book.model');
 const Room = require('../models/room.model');
+const Participant = require('../models/participant.model');
 const Comment = require('../models/comment.model');
 
 
@@ -21,8 +22,10 @@ module.exports.detail = (req, res, next) => {
         .populate({ path: 'comments', populate: { path: 'user'}})
         .populate({ path: 'comments', populate: { path: 'replies', populate: { path: 'user' }}})
         .then(room => {
-            console.log(room.comments)
-            res.render('rooms/detail', { room })
+            return Participant.find({ user: req.user.id })
+                .then(participants => {
+                    res.render('rooms/detail', { room, participants })
+                })
         })
         .catch(error => next(error));
 };

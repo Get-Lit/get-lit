@@ -6,7 +6,7 @@ const axios = require('axios');
 
 // List all books
 module.exports.list = (req, res, next) => {
-    Like.find({ user: req.user.id})
+    Like.find({ user: req.user.id })
         .then(likes => {
             return Book.find()
                 .then((books) => res.render('books/list', { books, likes }))
