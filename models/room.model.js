@@ -15,10 +15,6 @@ const roomSchema = new Schema ({
     book: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Book',
-    },
-    participants: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: 'User'
     }
 }, { timestamps: true,
     toJSON: {
@@ -31,6 +27,13 @@ roomSchema.virtual('comments', {
     foreignField: 'room',
     justOne: false
 })
+
+roomSchema.virtual('participants', {
+    ref: 'Participant',
+    localField: '_id',
+    foreignField: 'room',
+    justOne: false
+});
 
 const Room = mongoose.model('Room', roomSchema);
 
