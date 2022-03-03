@@ -21,6 +21,7 @@ module.exports.detail = (req, res, next) => {
     Room.findById(req.params.id)
         .populate({ path: 'comments', populate: { path: 'user'}})
         .populate({ path: 'comments', populate: { path: 'replies', populate: { path: 'user' }}})
+        .populate({ path: 'participants', populate: { path: 'user' }})
         .then(room => {
             return Participant.find({ user: req.user.id })
                 .then(participants => {

@@ -2,17 +2,30 @@
     <div>
         <h1>{{ room.name }}</h1>
         <p>{{ room.description }}</p>
-        <button data-id="{{room.id}}" id="join-room-btn" class="btn w-25" type="submit">{{#userJoinRoom participants=participants room=room}}LEAVE ROOM{{else}}JOIN ROOM{{/userJoinRoom}}</button>
-        <a class="btn w-25" href="/rooms/{{room._id}}/edit">EDIT ROOM</a>
-        <form action="/rooms/{{room._id}}/delete" class="d-inline" method="post">
-            <button class="btn w-25" type="submit">DELETE ROOM</button>
-        </form>
+        {{!-- Mostrar las imágenes de los participantes --}}
+        <div class="mt-3" id="room-participants-div">
+            <h5 class="fst-italic">bookworms:</h5>
+            <div>
+                {{#each room.participants as |participant|}}
+                    <img src="{{participant.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
+                {{/each}}
+            </div>
+        </div>
+        <div class="mt-3" id="room-detail-btns">
+            <button data-id="{{room.id}}" id="join-room-btn" class="btn w-25 {{#userJoinRoom participants=participants room=room}}red-btn{{else}}green-btn{{/userJoinRoom}}" type="submit">
+                {{#userJoinRoom participants=participants room=room}}LEAVE ROOM{{else}}JOIN ROOM{{/userJoinRoom}}
+            </button>
+            <a class="btn w-25" href="/rooms/{{room._id}}/edit">EDIT ROOM</a>
+            <form action="/rooms/{{room._id}}/delete" class="d-inline" method="post">
+                <button class="btn w-25" type="submit">DELETE ROOM</button>
+            </form>
+        </div>
     </div>
 
 <div class="w-75">
     {{!-- Crear un nuevo comentario --}}
     <div id="comment-div">
-        <img src="{{#if currentUser}}{{currentUser.image}}{{else}}https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png{{/if}}" class="comment-img">
+        <img src="{{#if currentUser}}{{currentUser.image}}{{else}}https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png{{/if}}" class="comment-img" referrerpolicy="no-referrer">
         <form action="/comment/{{room._id}}" method="POST">
             <input type="text" name="content" class="form-control h-50" placeholder="Write a comment...">
             <button class="btn mt-2 comment-reply-btn" type="submit">Comment</button>
@@ -40,7 +53,7 @@
                 {{#each comment.replies as |reply|}}
                     <div class="card-body room-reply">
                         <div class="d-flex flex-direction-column w-100 h-100">
-                            <img src="{{reply.user.image}}" alt="User's picture" class="reply-img">
+                            <img src="{{reply.user.image}}" alt="User's picture" class="reply-img" referrerpolicy="no-referrer">
                             <div class="w-100">
                                 <h4 class="user-name">{{reply.user.name}}</h4>
                                 <p>{{reply.content}}</p>

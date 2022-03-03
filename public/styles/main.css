@@ -641,3 +641,23 @@ footer {
 	width: 95px;
 	margin-left: 10px;
 }
+
+#room-participants-div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#room-participants-div img {
+	width: 30px;
+	margin-left: 5px;
+	border-radius: 100%;
+}
+
+.green-btn {
+	background-color: #96951b;
+}
+
+.red-btn, .red-btn:hover {
+	background-color: #741111;
+}
