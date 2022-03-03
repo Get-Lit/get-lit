@@ -11,11 +11,11 @@
             <div class="card-body">
                 <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title">{{ room.name }}</h4></a>
                 <p class="card-text">{{ room.description }}</p>
-            </div>
-            <div id="participants-div">
-                {{#each room.participants as |user| }}
-                    <img src="{{user.image}}" alt="Participant image">
-                {{/each}}
+                <div>
+                    {{#each room.participants as |user| }}
+                        <img class="participant-room-card-img" src="{{user.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
+                    {{/each}}
+                </div>
             </div>
         </div>
         {{/each}}

@@ -17,7 +17,7 @@
                         <p class="card-text">{{room.room.description}}</p>
                         <div>
                             {{#each room.room.participants as |participant|}}
-                                <img id="participant-room-card-img" src="{{participant.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
+                                <img class="participant-room-card-img" src="{{participant.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
                             {{/each}}
                         </div>
                     </div>
