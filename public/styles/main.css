@@ -79,6 +79,19 @@ footer {
 	color: white;
 }
 
+.navbar-nav {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.navbar-nav img {
+	width: 40px;
+	height: 40px;
+	border-radius: 10px;
+	margin: 0 0 0 10px;
+}
+
 /* Home Page */
 .div-flex-row {
 	display: flex;
@@ -335,10 +348,11 @@ footer {
 	margin: 2% 5%;
 }
 
-#profile-div img {
+#profile-info-img {
 	width: 100px;
 	height: 100px;
 	object-fit: cover;
+	border-radius: 10px;
 }
 
 .profile-div {
@@ -349,11 +363,29 @@ footer {
 	align-items: flex-start;
 }
 
-#profile-info-div {
+.profile-div h2 {
+	font-family: 'Mohave', sans-serif;
+	font-style: italic;
+	letter-spacing: 0px;
+}
+
+.profile-content-div {
 	padding: 5%;
 	width: 80%;
+	min-width: 300px;
 	background-color: #efede1;
-	border-radius: 5%;
+	border-radius: 10px;
+}
+
+.profile-content-div .room-card:first-child {
+	margin-top: 0;
+}
+
+#participant-room-card-img {
+	width: 35px;
+	height: 35px;
+	border-radius: 100%;
+	margin: 10px 0;
 }
 
 
@@ -650,6 +682,7 @@ footer {
 
 #room-participants-div img {
 	width: 30px;
+	height: 30px;
 	margin-left: 5px;
 	border-radius: 100%;
 }

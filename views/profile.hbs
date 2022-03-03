@@ -1,16 +1,34 @@
 <div id="profile-div">
     <div class="profile-div">
-        <h3>Your Profile</h3>
-        <div id="profile-info-div">
-            <img src="{{currentUser.image}}" alt="" referrerpolicy="no-referrer">
+        <h2>YOUR PROFILE</h2>
+        <div class="profile-content-div" id="profile-info-div">
+            <img id="profile-info-img" src="{{currentUser.image}}" alt="" referrerpolicy="no-referrer">
             <p>{{currentUser.name}}</p>
             <p>{{currentUser.email}}</p>
         </div>
     </div>
     <div class="profile-div">
-        <h3>Your Rooms</h3>
+        <h2>YOUR ROOMS</h2>
+        <div class="profile-content-div">
+            {{#each rooms as |room|}}
+                <div class="card room-card">
+                    <div class="card-body">
+                        <a class="title-link" href="/rooms/{{room.room._id}}"><h3 class="card-title">{{ room.room.name }}</h3></a>
+                        <p class="card-text">{{room.room.description}}</p>
+                        <div>
+                            {{#each room.room.participants as |participant|}}
+                                <img id="participant-room-card-img" src="{{participant.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
     </div>
     <div class="profile-div">
-        <h3>Your Books</h3>
+        <h2>YOUR BOOKS</h2>
+        <div class="profile-content-div">
+            
+        </div>
     </div>
 </div>

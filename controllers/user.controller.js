@@ -1,11 +1,20 @@
 const Comment = require('../models/comment.model')
 const Reply = require('../models/reply.model');
 const Like = require('../models/like.model');
-const Participant = require('../models/participant.model')
+const Participant = require('../models/participant.model');
+const User = require('../models/user.model');
 
+
+// Render user information
 module.exports.profile = (req, res, next) => {
-    res.render('profile');
-}
+    User.findById(req.user.id)
+        .populate({ path: 'rooms', populate: { path: 'room', populate: { path: 'participants', populate: { path: 'user'  }}}})
+        .then(user => {
+            console.log(user.rooms);
+            res.render('profile', { rooms: user.rooms });
+        })
+        .catch(error => next(error));
+};
 
 // Post comments and replies in a room
 module.exports.doComment = (req, res, next) => {
@@ -77,6 +86,7 @@ module.exports.deleteComment = (req, res, next) => {
         .catch(error => next(error))
 }
 
+// Join and Leave a room
 module.exports.addParticipant = (req, res, next) => {
     const roomId = req.params.id;
     const userId = req.user.id;
