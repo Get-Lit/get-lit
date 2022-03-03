@@ -563,6 +563,19 @@ footer {
 	opacity: 0.5;
 }
 
+#search-books-div {
+	padding: 12px 0;
+	background-color: #d8b7af;
+}
+
+#search-books-inside-div  {
+	width: 30%;
+	min-width: 400px;
+}
+
+#search-books-div h5 {
+	margin-top: 4px;
+}
 
 /* Book Detail */
 #book-detail {
@@ -689,6 +702,10 @@ footer {
 
 .green-btn {
 	background-color: #96951b;
+}
+
+.green-btn:hover {
+	background-color: #484131;
 }
 
 .red-btn, .red-btn:hover {
