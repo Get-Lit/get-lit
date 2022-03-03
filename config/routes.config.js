@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
+const upload = require('../config/storage.config');
 
 const SCOPES = [
     "https://www.googleapis.com/auth/userinfo.profile",
@@ -24,7 +25,7 @@ router.get('/contact', misc.contact);
 
 // Sign up Routes
 router.get('/signup', isNotAuthenticated, auth.signup);
-router.post('/signup', isNotAuthenticated, auth.doSignup);
+router.post('/signup', isNotAuthenticated, upload.single('image'), auth.doSignup);
 
 router.get('/activate/:token', isNotAuthenticated, auth.activate);
 
