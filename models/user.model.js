@@ -59,10 +59,17 @@ userSchema.virtual('likes', {
 
 userSchema.virtual('comments', {
     ref: "Comment",
-    localField:':_id',
+    localField:'_id',
     foreignField: 'user',
     justOne: false
-})
+});
+
+userSchema.virtual('rooms', {
+    ref: "Participant",
+    localField:'_id',
+    foreignField: 'user',
+    justOne: false
+});
 
 userSchema.pre('save', function(next) {
     const user = this;
