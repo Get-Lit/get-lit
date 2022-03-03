@@ -59,8 +59,12 @@ module.exports.doAdd = (req, res, next) => {
 
     axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
         .then(response => {
+            console.log(response.data)
             const book = response.data;
-            const year = parseInt(book.volumeInfo.publishedDate.slice(0, 4));
+            let year = "";
+            if(book.volumeInfo.publishedDate) {
+                year = parseInt(book.volumeInfo.publishedDate.slice(0, 4));
+            }
             
             return Book.findOne({ title: book.volumeInfo.title })
                 .then(bookFound => {
