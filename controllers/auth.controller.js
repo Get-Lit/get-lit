@@ -21,20 +21,17 @@ module.exports.doSignup = (req, res, next) => {
             if (userFound) {
                 renderWithErrors({ email: 'Email already in use.' });
             } else {
-                console.log('User by email not found... Proceed to check username.')
                 return User.findOne({name: user.name})
                     .then((userFound) => {
                         if (userFound) {
                             renderWithErrors({ name: 'Name already in use.' });
                         } else {
-                            console.log('User by username not found, proceed to check image file.')
                             if (req.file) {
                                 user.image = req.file.path;
                                 console.log('Image found: ', user.image)
                             }
                             return User.create(user)
                                 .then((createdUser) => {
-                                    console.log('User created.')
                                     mailer.sendActivationEmail(createdUser.email, createdUser.activationToken);
                                     req.flash('flashMessage', 'We have sent you an email to complete your registration.');
                                     res.redirect('/login');
