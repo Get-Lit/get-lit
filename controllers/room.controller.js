@@ -9,7 +9,9 @@ const Comment = require('../models/comment.model');
 // Show all rooms
 module.exports.list = (req, res, next) => {
     Room.find()
+        .populate({ path: 'participants', populate: { path: 'user' }})
         .then(rooms => {
+            console.log(rooms[0].participants)
             res.render('rooms/list', { rooms });
         })
         .catch(error => next(error));
