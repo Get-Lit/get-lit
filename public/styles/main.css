@@ -94,6 +94,8 @@ footer {
 
 #random-quote-div {
 	width: 500px;
+	border-left: 1px solid #ffd9d0;
+	border-right: 1px solid #ffd9d0;
 }
 
 #random-quote {
@@ -612,7 +614,7 @@ footer {
 
 #search-books-div {
 	padding: 12px 0;
-	background-color: #d8b7af;
+	background-color: #ffd9d0;
 }
 
 #search-books-inside-div  {
