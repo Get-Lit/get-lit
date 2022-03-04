@@ -44,6 +44,7 @@ router.post('/participant/:id', isAuthenticated, user.addParticipant);
 router.post('/comment/:id/reply', isAuthenticated, user.doReply);
 router.post('/comment/:id/delete', isAuthenticated, user.deleteComment);
 router.post('/comment/:id', isAuthenticated, user.doComment);
+router.post('/like/:id/delete', isAuthenticated, user.deleteLike)
 router.post('/like/:id', isAuthenticated, user.doLike);
 
 // Book Routes

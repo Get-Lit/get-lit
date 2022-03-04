@@ -11,7 +11,7 @@ const bookSchema = new mongoose.Schema({
     },
     cover: {
         type: String,
-        default: "https://www.abbeville.com/assets/common/images/edition_placeholder.png"
+        default: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.researchpad.co%2Farticle%2Fdoi%2F10.1016%2Fj.semerg.2020.05.004&psig=AOvVaw30cz2MoJWgpqMjCpqQIGTq&ust=1646438143545000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNCAxZeSq_YCFQAAAAAdAAAAABAD"
     },
     year: {
         type: Number
@@ -29,10 +29,6 @@ const bookSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
     },
-    // rooms: {
-    //     type: [ mongoose.Schema.Types.ObjectId ],
-    //     ref: 'Room'
-    // }
 }, { timestamps: true, 
     toJSON: {
         virtuals: true

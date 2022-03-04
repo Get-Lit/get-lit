@@ -388,6 +388,25 @@ footer {
 	margin: 10px 0;
 }
 
+.cover-title-div {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 10px;
+	justify-content: space-between;
+}
+
+.cover-div {
+	margin-right: 15px;
+}
+
+.cover-div > img {
+	border-radius: 10px;
+}
+
+.margin-button {
+	margin-left: 13px;
+}
+
 
 /* Error page */
 .center-div {
@@ -547,6 +566,16 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.like-button-detail {
+	width: 50px;
+	height: 50px;
+	background-color: #F3E7E4;
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	margin-left: 20px;
 }
 
 .fa-heart {

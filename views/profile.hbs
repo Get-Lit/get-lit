@@ -28,7 +28,31 @@
     <div class="profile-div">
         <h2>YOUR BOOKS</h2>
         <div class="profile-content-div">
-            
+            {{#each books as |book|}}
+                <div class="card room-card p-2">
+                    <div class="cover-title-div">
+                        <div class="cover-div">
+                            <img src="{{book.book.cover}}" alt="Book cover" height="120" width="80">
+                        </div>
+
+                        <div class="w-75">
+                            <h5>{{ book.book.title }}</h5>
+                            <p>{{ book.book.author }}</p>
+                        </div>
+                        
+                        <div>
+                            <form action="/like/{{book.id}}/delete" method="POST">
+                                    <button class="fa fa-trash border-0 bg-transparent mt-2" type="submit"></button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <a href="/books/{{book.book._id}}" class="btn">DETAILS</a>
+                        <a href="/books/{{book.book._id}}/rooms" class="btn margin-button" >ROOMS</a>
+                    </div>
+                </div>
+            {{/each}}  
         </div>
     </div>
 </div>

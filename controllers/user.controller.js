@@ -9,9 +9,9 @@ const User = require('../models/user.model');
 module.exports.profile = (req, res, next) => {
     User.findById(req.user.id)
         .populate({ path: 'rooms', populate: { path: 'room', populate: { path: 'participants', populate: { path: 'user'  }}}})
+        .populate({ path: 'likes', populate: { path: 'book' }})
         .then(user => {
-            console.log(user.rooms);
-            res.render('profile', { rooms: user.rooms });
+            res.render('profile', { rooms: user.rooms, books: user.likes });
         })
         .catch(error => next(error));
 };
@@ -67,6 +67,15 @@ module.exports.doLike = (req, res, next) => {
             }
         })
         .catch(error => next(error))
+}
+
+module.exports.deleteLike = (req, res, next) => {
+    Like.findByIdAndDelete(req.params.id)
+        .then(() => {
+            req.flash('flashMessage', 'Book removed from your list.')
+            res.redirect('/profile');
+        })
+        .catch(error => next(error));
 }
 
 
