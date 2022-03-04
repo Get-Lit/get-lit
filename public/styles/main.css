@@ -92,6 +92,24 @@ footer {
 	margin: 0 0 0 10px;
 }
 
+#random-quote-div {
+	width: 500px;
+}
+
+#random-quote {
+	color:#ffd9d0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: clip;
+	animation: movingtitle 10s infinite linear reverse;
+}
+
+@keyframes movingtitle {
+	from {text-indent:-100%;}
+	to {text-indent:100%;}
+}
+
+
 /* Home Page */
 .div-flex-row {
 	display: flex;
