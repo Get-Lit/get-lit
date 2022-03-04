@@ -22,7 +22,7 @@ module.exports.detail = (req, res, next) => {
             if(book) {
                 res.render('books/detail', { book });
             } else {
-                res.redirect('/books');
+            res.redirect('/books');
             }
         })
         .catch(error => next(error));
