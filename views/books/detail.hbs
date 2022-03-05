@@ -9,12 +9,12 @@
         </div>
         <p class="mt-3">{{book.synopsis}}</p>
         <a class="btn w-25 mt-5" href="/books/{{book._id}}/rooms">SEE ROOMS</a>
+        {{#if admin}}
         <a class="btn w-25 mt-5" href="/books/{{book._id}}/edit">EDIT BOOK</a>
         <form action="/books/{{book._id}}/delete" class="d-inline" method="post">
-            <button class="btn w-25 mt-5" type="submit">DELETE BOOK</button>
-    
-    
+            <button class="btn w-25 mt-5" type="submit">DELETE BOOK</button>    
         </form>
+        {{/if}}
     </div>
     <div>
     </div>

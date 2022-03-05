@@ -40,6 +40,13 @@ app.use((req, res, next) => {
 // Config routes
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
+    
+    if(res.locals.currentUser) {
+        if(res.locals.currentUser.role === "admin") {
+            res.locals.admin = true
+        }
+
+    }
     res.locals.GOOGLE_MAPS_KEY = process.env.GOOGLE_MAPS_KEY;
     next()
 })

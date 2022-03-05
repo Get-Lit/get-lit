@@ -15,10 +15,12 @@
             <button data-id="{{room.id}}" id="join-room-btn" class="btn w-25 {{#userJoinRoom participants=participants room=room}}red-btn{{else}}green-btn{{/userJoinRoom}}" type="submit">
                 {{#userJoinRoom participants=participants room=room}}LEAVE ROOM{{else}}JOIN ROOM{{/userJoinRoom}}
             </button>
+            {{#if admin}}
             <a class="btn w-25" href="/rooms/{{room._id}}/edit">EDIT ROOM</a>
             <form action="/rooms/{{room._id}}/delete" class="d-inline" method="post">
                 <button class="btn w-25" type="submit">DELETE ROOM</button>
             </form>
+            {{/if}}
         </div>
     </div>
 
