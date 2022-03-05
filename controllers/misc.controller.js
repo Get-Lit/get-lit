@@ -20,3 +20,7 @@ module.exports.contact = (req, res, next) => {
     res.render('misc/contact');
 }
 
+module.exports.findBookshops = (req, res, next) => {
+    res.render('misc/findBookshops');
+}
+

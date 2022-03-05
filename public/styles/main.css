@@ -94,6 +94,8 @@ footer {
 
 #random-quote-div {
 	width: 500px;
+	border-left: 1px solid #ffd9d0;
+	border-right: 1px solid #ffd9d0;
 }
 
 #random-quote {
@@ -359,9 +361,9 @@ footer {
 
 
 /* Profile */
-#profile-div {
+#profile-div-container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: flex-start;
 	margin: 2% 5%;
 }
@@ -389,7 +391,7 @@ footer {
 
 .profile-content-div {
 	padding: 5%;
-	width: 80%;
+	width: 95%;
 	min-width: 300px;
 	background-color: #efede1;
 	border-radius: 10px;
@@ -612,7 +614,7 @@ footer {
 
 #search-books-div {
 	padding: 12px 0;
-	background-color: #d8b7af;
+	background-color: #ffd9d0;
 }
 
 #search-books-inside-div  {
@@ -757,4 +759,20 @@ footer {
 
 .red-btn, .red-btn:hover {
 	background-color: #741111;
+}
+
+/* Find Bookshops */
+
+#google-map {
+	height: 450px;
+	width: 70%;
+	border-radius: 20px;
+}
+
+#find-bookshops-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2%
 }

@@ -22,6 +22,7 @@ const { isAuthenticated, isNotAuthenticated } = require('../middlewares/auth.mid
 router.get('', misc.home);
 router.get('/about', misc.about);
 router.get('/contact', misc.contact);
+router.get('/find-bookshops', misc.findBookshops);
 
 // Sign up Routes
 router.get('/signup', isNotAuthenticated, auth.signup);
