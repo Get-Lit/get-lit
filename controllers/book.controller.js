@@ -6,17 +6,24 @@ const axios = require('axios');
 
 // List all books
 module.exports.list = (req, res, next) => {
-    Like.find({ user: req.user.id })
-        .then(likes => {
-            return Book.find()
-                .then((books) => res.render('books/list', { books, likes }))
-        })
-        .catch(error => next(error));
+    if(res.locals.currentUser) {
+        Like.find({ user: req.user.id })
+            .then(likes => {
+                return Book.find()
+                    .then((books) => res.render('books/list', { books, likes }))
+            })
+            .catch(error => next(error));
+    } else {
+        Book.find()
+            .then((books) => res.render('books/list', { books }))
+            .catch(error => next(error));
+    }
 }
 
 
 // Show details of one book
 module.exports.detail = (req, res, next) => {
+    console.log(res.locals.currentUser.role)
     Book.findById(req.params.id)
         .then((book) => {
             if(book) {

@@ -4,10 +4,10 @@
         <a class="btn w-50" href="/books/create">ADD NEW BOOK</a>
     </div>
 </div>
-<div class="container d-flex flex-column justify-content-center align-items-center">
-    <div class="row d-flex justify-content-around mb-3">
+<div class="container">
+    <div class="row d-flex mb-3">
         {{#each books as |book|}}
-        <div class="card book-card p-2">
+        <div class="card book-card p-2 m-3">
             <div class="card-img">
                 <img src="{{book.cover}}" alt="Book cover">
             </div>

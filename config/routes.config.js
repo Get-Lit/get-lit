@@ -17,6 +17,7 @@ const room = require('../controllers/room.controller');
 
 // Middlewares
 const { isAuthenticated, isNotAuthenticated } = require('../middlewares/auth.middleware');
+const { isAdmin } = require('../middlewares/roles.middleware');
 
 // Misc Routes
 router.get('', misc.home);
@@ -54,18 +55,18 @@ router.get('/books/:id/rooms', book.rooms);
 router.get('/books/create', book.add);
 router.get('/books/search', book.search);
 router.post('/books/create', isAuthenticated, book.doAdd);
-router.get('/books/:id/edit', isAuthenticated, book.edit);
-router.post('/books/:id/edit', isAuthenticated, book.doEdit);
-router.post('/books/:id/delete', isAuthenticated, book.delete);
-router.get('/books/:id', book.detail);
+router.get('/books/:id/edit', isAuthenticated, isAdmin, book.edit);
+router.post('/books/:id/edit', isAuthenticated, isAdmin, book.doEdit);
+router.post('/books/:id/delete', isAuthenticated, isAdmin, book.delete);
+router.get('/books/:id', isAuthenticated, book.detail);
 
 // Room Routes
 router.get('/rooms', room.list);
 router.get('/rooms/create', isAuthenticated, room.create);
 router.post('/rooms/create', isAuthenticated, room.doCreate);
-router.get('/rooms/:id/edit', isAuthenticated, room.edit);
-router.post('/rooms/:id/edit', isAuthenticated, room.doEdit);
-router.post('/rooms/:id/delete', isAuthenticated, room.delete);
-router.get('/rooms/:id', room.detail);
+router.get('/rooms/:id/edit', isAuthenticated, isAdmin, room.edit);
+router.post('/rooms/:id/edit', isAuthenticated, isAdmin, room.doEdit);
+router.post('/rooms/:id/delete', isAuthenticated, isAdmin, room.delete);
+router.get('/rooms/:id', isAuthenticated, room.detail);
 
 module.exports = router;
