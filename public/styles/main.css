@@ -760,3 +760,10 @@ footer {
 .red-btn, .red-btn:hover {
 	background-color: #741111;
 }
+
+/* Find Bookshops */
+
+#google-map {
+	height: 500px;
+	width: 80%;
+}

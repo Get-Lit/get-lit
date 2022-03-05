@@ -40,6 +40,7 @@ app.use((req, res, next) => {
 // Config routes
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
+    res.locals.GOOGLE_MAPS_KEY = process.env.GOOGLE_MAPS_KEY;
     next()
 })
 
