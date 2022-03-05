@@ -1,6 +1,4 @@
 const startMap = () => {
-    infowindow = new google.maps.InfoWindow();
-
     const ironhackBarcelona = {
         lat: 41.3977381,
   	    lng: 2.190471916
@@ -26,8 +24,8 @@ const startMap = () => {
             const request = {
                 query: 'libreria',
                 location: userLocation,
-                radius: '500',
-                type: ['restaurant'],
+                radius: '1000',
+                type: ['book_store'],
                 fields: ["name", "geometry"],
             };
         
@@ -40,7 +38,7 @@ const startMap = () => {
                 }
               }
             });
-        
+
             function createMarker(place) {
                 if (!place.geometry || !place.geometry.location) return;
               
@@ -50,8 +48,23 @@ const startMap = () => {
                 });
               
                 google.maps.event.addListener(marker, "click", () => {
-                  infowindow.setContent(place.name || "");
-                  infowindow.open(map);
+                    const contentString = 
+                        "<div id='content'>" +
+                        `<h5>${place.name}</h5>` +
+                        `<p>Rating: ${place.rating}</p>` +
+                        "<br>" +
+                        `<p>${place.vicinity}</p>` +
+                        "</div>"
+                    ;
+
+                    const infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+                    infowindow.open({
+                        anchor: marker,
+                        map,
+                        shouldFocus: false
+                    });
                 });
             };
         })

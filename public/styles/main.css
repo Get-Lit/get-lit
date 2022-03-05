@@ -361,9 +361,9 @@ footer {
 
 
 /* Profile */
-#profile-div {
+#profile-div-container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: flex-start;
 	margin: 2% 5%;
 }
@@ -391,7 +391,7 @@ footer {
 
 .profile-content-div {
 	padding: 5%;
-	width: 80%;
+	width: 95%;
 	min-width: 300px;
 	background-color: #efede1;
 	border-radius: 10px;
@@ -764,6 +764,15 @@ footer {
 /* Find Bookshops */
 
 #google-map {
-	height: 500px;
-	width: 80%;
+	height: 450px;
+	width: 70%;
+	border-radius: 20px;
+}
+
+#find-bookshops-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2%
 }
