@@ -1,9 +1,14 @@
 <div class="container mt-5">
-    
-    {{#if book}}<h1>Rooms for <a class="title-link" href="/books/{{book._id}}">{{book.title}} - {{book.author}}</a></h1>
-    {{else}}<h1>All rooms</h1>
-    {{/if}}
 
+    <div>
+        {{#if book}}
+            <h1>Rooms for <a class="title-link" href="/books/{{book._id}}">{{book.title}} - {{book.author}}</a></h1>
+        {{else}}
+            <h1>All rooms</h1>
+        {{/if}}
+
+        <a class="btn w-25 mt-5" href="/rooms/create">CREATE NEW ROOM</a>
+    </div>
 
     <div class="row d-flex justify-content-around">
     {{#if rooms}}
@@ -18,7 +23,10 @@
 
                 <p class="card-text">{{ room.description }}</p>
                 
-                <div>
+                <div class="room-info">
+                    <i class="bi bi-chat-square"></i> {{room.comments.length}} Comments |
+                    <i class="bi bi-share"></i> Share | 
+                    <i class="bi bi-person"></i> {{room.participants.length}} Bookworms: 
                     {{#each room.participants as |user| }}
                         <img class="participant-room-card-img" src="{{user.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
                     {{/each}}
@@ -35,5 +43,4 @@
     </div>
     {{/if}}
     </div>
-    <a class="btn w-25 mt-5" href="/rooms/create">CREATE NEW ROOM</a>
 </div>
