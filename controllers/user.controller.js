@@ -16,6 +16,36 @@ module.exports.profile = (req, res, next) => {
         .catch(error => next(error));
 };
 
+module.exports.edit = (req, res, next) => {
+    User.findById(req.user.id)
+        .populate({ path: 'rooms', populate: { path: 'room', populate: { path: 'participants', populate: { path: 'user'  }}}})
+        .populate({ path: 'likes', populate: { path: 'book' }})
+        .then(user => {
+            res.render('profile', { rooms: user.rooms, books: user.likes, edit: true });
+        })
+        .catch(error => next(error));
+};
+
+module.exports.doEdit = (req, res, next) => {
+    if (req.file) {
+        req.body.image = req.file.path;
+
+        User.findByIdAndUpdate(req.user.id, { image: req.body.image, name: req.body.name})
+            .then(() => {
+                req.flash('flashMessage', 'You updated your profile.');
+                res.redirect("/profile");
+            })
+            .catch(error => next(error));
+    } else {
+        User.findByIdAndUpdate(req.user.id, { name: req.body.name})
+            .then(() => {
+                req.flash('flashMessage', 'You updated your profile.');
+                res.redirect("/profile");
+            })
+            .catch(error => next(error));
+    }
+};
+
 // Post comments and replies in a room
 module.exports.doComment = (req, res, next) => {
     const roomId = req.params.id;

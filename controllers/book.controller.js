@@ -23,7 +23,6 @@ module.exports.list = (req, res, next) => {
 
 // Show details of one book
 module.exports.detail = (req, res, next) => {
-    console.log(res.locals.currentUser.role)
     Book.findById(req.params.id)
         .then((book) => {
             if(book) {

@@ -30,7 +30,7 @@
         <img src="{{#if currentUser}}{{currentUser.image}}{{else}}https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png{{/if}}" class="comment-img" referrerpolicy="no-referrer">
         <form action="/comment/{{room._id}}" method="POST">
             <input type="text" name="content" class="form-control h-50" placeholder="Write a comment...">
-            <button class="btn mt-2 comment-reply-btn" type="submit">Comment</button>
+            <button class="btn mt-2 w-25" type="submit">COMMENT</button>
         </form>
     </div>
 
@@ -47,7 +47,7 @@
                     </div>
                         <form action="/comment/{{comment.id}}/delete" method="POST">
                             <input type="text" name="id" class="d-none" value="{{../room.id}}">
-                            <button class="fa fa-trash border-0 bg-transparent mt-2" type="submit"></button>
+                            <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
                         </form>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                             </div>
                             <form action="/comment/{{reply.id}}/delete" method="POST">
                                 <input type="text" name="id" class="d-none" value="{{../../room.id}}">
-                                <button class="fa fa-trash border-0 bg-transparent mt-2" type="submit"></button>
+                                <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
                             </form>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                     <form class="d-flex justify-content-start align-items-center" action="/comment/{{comment.id}}/reply" method="POST">
                         <textarea class="w-100" name="content" cols="30" placeholder="Write your reply..."></textarea>
                         <input type="text" name="id" class="d-none" value="{{../room.id}}">
-                        <button class="btn comment-reply-btn" type="submit">Reply</button>
+                        <button class="btn comment-reply-btn" type="submit">REPLY</button>
                     </form>
                 </div>
             </div>
