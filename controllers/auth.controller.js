@@ -82,7 +82,7 @@ const login = (req, res, next, provider) => {
                 if(loginError){
                     next(loginError);
                 } else {
-                    req.flash('flashMessage', `Welcome back ${user.name}`);
+                    req.flash('flashMessage', `Welcome back, ${user.name}!`);
                     res.redirect('/profile');
                 }
             })

@@ -161,7 +161,7 @@ footer {
 #home-why-options img {
 	width: 30px;
 	margin-right: 20px;
-	filter: invert(56%) sepia(10%) saturate(2280%) hue-rotate(21deg) brightness(94%) contrast(123%);
+	filter: invert(91%) sepia(8%) saturate(5784%) hue-rotate(298deg) brightness(114%) contrast(117%);
 }
 
 #home-why-options div {
@@ -693,6 +693,10 @@ footer {
 }
 
 /* Room detail */
+.room-description {
+	font-size: 22px;
+}
+
 #comment-div {
 	height: 180px;
 	display: flex;
@@ -701,12 +705,12 @@ footer {
 
 .room-comment {
 	padding: 25px 20px;
-	height: 150px;
+	min-height: 130px;
 }
 
 .room-reply {
 	padding: 25px 20px;
-	height: 100px;
+	min-height: 100px;
 }
 
 .comment-img {

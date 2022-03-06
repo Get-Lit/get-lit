@@ -9,7 +9,7 @@
         {{#each rooms as |room|}}
         <div class="card room-card">
             <div class="card-body">
-                <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title">{{ room.name }}</h4></a>
+                <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title mt-2">{{ room.name }}</h4></a>
                 <p class="card-text">{{ room.description }}</p>
                 <div>
                     {{#each room.participants as |user| }}
@@ -22,7 +22,7 @@
     {{else}}
     <div class="center-div">
         <div id="error-div" class="mt-5">
-            <h4>There are no rooms at the moment. Create a new one and start commenting!</h3>
+            <h4>There are no rooms at the moment. Create a new one and start commenting!</h4>
             <img src="/img/empty.svg" alt="Empty icon" class="w-50">
         </div>
     </div>
