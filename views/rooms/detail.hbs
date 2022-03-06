@@ -1,7 +1,13 @@
-<div class="mt-5 container">
-    <div>
-        <h1>{{ room.name }}</h1>
-        <p>{{ room.description }}</p>
+<div class="mt-5 d-flex justify-content-center align-items-center">
+    <div class="w-75">
+
+        {{!-- Nombre y descripción de la room --}}
+        <div>
+            <h2>{{ room.name }}</h2>
+            <p class="room-description">{{ room.description }}</p>
+            <hr>
+        </div>
+
         {{!-- Mostrar las imágenes de los participantes --}}
         <div class="mt-3" id="room-participants-div">
             <h5 class="fst-italic">bookworms:</h5>
@@ -11,6 +17,8 @@
                 {{/each}}
             </div>
         </div>
+
+        {{!-- Botones de unirse/salir de la sala, editar y borrar --}}
         <div class="mt-3" id="room-detail-btns">
             <button data-id="{{room.id}}" id="join-room-btn" class="btn w-25 {{#userJoinRoom participants=participants room=room}}red-btn{{else}}green-btn{{/userJoinRoom}}" type="submit">
                 {{#userJoinRoom participants=participants room=room}}LEAVE ROOM{{else}}JOIN ROOM{{/userJoinRoom}}
@@ -22,65 +30,81 @@
             </form>
             {{/if}}
         </div>
-    </div>
 
-<div class="w-75">
-    {{!-- Crear un nuevo comentario --}}
-    <div id="comment-div">
-        <img src="{{#if currentUser}}{{currentUser.image}}{{else}}https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png{{/if}}" class="comment-img" referrerpolicy="no-referrer">
-        <form action="/comment/{{room._id}}" method="POST">
-            <input type="text" name="content" class="form-control h-50" placeholder="Write a comment...">
-            <button class="btn mt-2 w-25" type="submit">COMMENT</button>
-        </form>
-    </div>
-
-    {{!-- Mostrar los comentarios que tiene la sala --}}
-    <h3>Comments</h3>
-        {{#each room.comments as |comment|}}    
-        <div class="card mt-4">
-            <div class="card-body room-comment">
-                <div class="d-flex flex-direction-column w-100 h-100">
-                    <img src="{{comment.user.image}}" alt="User's picture" class="comment-img">
-                    <div class="w-100">
-                        <h4 class="user-name">{{comment.user.name}}</h4>
-                        <p>{{comment.content}}</p>
-                    </div>
-                        <form action="/comment/{{comment.id}}/delete" method="POST">
-                            <input type="text" name="id" class="d-none" value="{{../room.id}}">
-                            <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
-                        </form>
-                </div>
+        {{!-- Crear un nuevo comentario --}}
+        <div class="w-100">
+            <div id="comment-div">
+                <img src="{{#if currentUser}}{{currentUser.image}}{{else}}https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png{{/if}}" class="comment-img" referrerpolicy="no-referrer">
+                <form action="/comment/{{room._id}}" method="POST">
+                    <input type="text" name="content" class="form-control h-50" placeholder="Write a comment...">
+                    <button class="btn mt-2 w-25" type="submit">COMMENT</button>
+                </form>
             </div>
-            <div class="bg-light">
-                {{#each comment.replies as |reply|}}
-                    <div class="card-body room-reply">
-                        <div class="d-flex flex-direction-column w-100 h-100">
-                            <img src="{{reply.user.image}}" alt="User's picture" class="reply-img" referrerpolicy="no-referrer">
-                            <div class="w-100">
-                                <h4 class="user-name">{{reply.user.name}}</h4>
-                                <p>{{reply.content}}</p>
+
+            {{!-- Mostrar los comentarios que tiene la sala --}}
+            <h3>Comments</h3>
+                {{#if room.comments}}
+                    {{#each room.comments as |comment|}}    
+                        <div class="card mt-4">
+                            <div class="card-body room-comment">
+                                <div class="d-flex flex-direction-column">
+                                    <img src="{{comment.user.image}}" alt="User's picture" class="comment-img">
+                                    <div class="w-100">
+                                        <h4 class="user-name">{{comment.user.name}}</h4>
+                                        <p>{{comment.content}}</p>
+                                    </div>
+                                        <form action="/comment/{{comment.id}}/delete" method="POST">
+                                            <input type="text" name="id" class="d-none" value="{{../room.id}}">
+                                            <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
+                                        </form>
+                                </div>
                             </div>
-                            <form action="/comment/{{reply.id}}/delete" method="POST">
-                                <input type="text" name="id" class="d-none" value="{{../../room.id}}">
-                                <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
-                            </form>
+                            
+                            {{!-- Mostrar las replies que tiene el comentario --}}
+                            <div class="bg-light">
+                                {{#each comment.replies as |reply|}}
+                                    <div class="card-body room-reply">
+                                        <div class="d-flex flex-direction-column">
+                                            <img src="{{reply.user.image}}" alt="User's picture" class="reply-img" referrerpolicy="no-referrer">
+                                            <div class="w-100">
+                                                <h4 class="user-name">{{reply.user.name}}</h4>
+                                                <p>{{reply.content}}</p>
+                                            </div>
+                                            <form action="/comment/{{reply.id}}/delete" method="POST">
+                                                <input type="text" name="id" class="d-none" value="{{../../room.id}}">
+                                                <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <hr class="m-0">
+                                {{/each}}
+                            </div>        
+                            
+                            {{!-- Formulario de reply --}}
+                            <div class="">
+                                <form class="d-flex justify-content-start align-items-center" action="/comment/{{comment.id}}/reply" method="POST">
+                                    <textarea class="w-100 h-100" name="content" cols="30" placeholder="   Write your reply..."></textarea>
+                                    <input type="text" name="id" class="d-none" value="{{../room.id}}">
+                                    <button class="btn comment-reply-btn" type="submit">REPLY</button>
+                                </form>
+                            </div>
+                        </div>
+                    {{/each}}
+
+                {{!-- Mostrar imagen de no-comments si no hay comentarios --}}
+                {{else}}
+                    <div class="center-div">
+                        <div id="error-div" class="mt-4">
+                            <p>Such emptiness... Be the first one to write a comment!</p>
+                            <img src="/img/typewriter.svg" alt="No comments-icon" class="w-25 mt-4 mb-4">
                         </div>
                     </div>
-                    <hr>
-                {{/each}}
-            </div>        
-                <div class="mt-3">
-                    <form class="d-flex justify-content-start align-items-center" action="/comment/{{comment.id}}/reply" method="POST">
-                        <textarea class="w-100" name="content" cols="30" placeholder="Write your reply..."></textarea>
-                        <input type="text" name="id" class="d-none" value="{{../room.id}}">
-                        <button class="btn comment-reply-btn" type="submit">REPLY</button>
-                    </form>
+                {{/if}}
                 </div>
             </div>
-        {{/each}}
         </div>
     </div>
-</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/axios.js"></script>
