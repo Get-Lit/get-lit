@@ -2,9 +2,21 @@
     <div class="profile-div">
         <h2>YOUR PROFILE</h2>
         <div class="profile-content-div" id="profile-info-div">
+        {{#if edit}}
+            <form action="/profile/edit" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" class="form-control upload-image" name="imageEdited" value="{{currentUser.image}}">
+                    <input type="text" class="mt-2 form-control {{#if errors.name}}is-invalid{{/if}}" name="name" required="required" value="{{currentUser.name}}">
+                    {{#if errors.name}} <div class="invalid-feedback">{{errors.name}}</div>{{/if}}
+                </div>
+                <button type="submit" class="btn btn-block mt-2">SAVE CHANGES</button>
+            </form>
+        {{else}}
             <img id="profile-info-img" src="{{currentUser.image}}" alt="" referrerpolicy="no-referrer">
-            <p>{{currentUser.name}}</p>
-            <p>{{currentUser.email}}</p>
+            <p><span>name</span>    {{currentUser.name}}</p>
+            <p><span>email</span>    {{currentUser.email}}</p>
+            <a href="/profile/edit" class="btn w-50 mt-3">EDIT PROFILE</a>
+        {{/if}}
         </div>
     </div>
     <div class="profile-div">
