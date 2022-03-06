@@ -111,6 +111,22 @@ footer {
 	to {text-indent:100%;}
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+	min-width: 80px;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #484131;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 /* Home Page */
 .div-flex-row {
@@ -673,7 +689,7 @@ footer {
 
 /* Room List */
 .room-card {
-	width: 90%;
+	width: 100%;
 	border-radius: 10px;
 	margin-top: 30px;
 }
