@@ -4,13 +4,20 @@
     {{else}}<h1>All rooms</h1>
     {{/if}}
 
+
     <div class="row d-flex justify-content-around">
     {{#if rooms}}
         {{#each rooms as |room|}}
         <div class="card room-card">
             <div class="card-body">
-                <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title mt-2">{{ room.name }}</h4></a>
+
+                <div class="d-flex justify-content-between">
+                    <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title mt-2">{{ room.name }}</h4></a>
+                    <h5 id="room-book-title">{{room.book.title}}</h5>
+                </div>
+
                 <p class="card-text">{{ room.description }}</p>
+                
                 <div>
                     {{#each room.participants as |user| }}
                         <img class="participant-room-card-img" src="{{user.user.image}}" alt="Participant image" referrerpolicy="no-referrer">

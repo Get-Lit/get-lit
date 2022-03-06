@@ -10,6 +10,7 @@ const Comment = require('../models/comment.model');
 module.exports.list = (req, res, next) => {
     Room.find()
         .populate({ path: 'participants', populate: { path: 'user' }})
+        .populate({ path: 'book' })
         .then(rooms => {
             console.log(rooms[0].participants)
             res.render('rooms/list', { rooms });
@@ -24,6 +25,7 @@ module.exports.detail = (req, res, next) => {
         .populate({ path: 'comments', populate: { path: 'user'}})
         .populate({ path: 'comments', populate: { path: 'replies', populate: { path: 'user' }}})
         .populate({ path: 'participants', populate: { path: 'user' }})
+        .populate({ path: 'book' })
         .then(room => {
             return Participant.find({ user: req.user.id })
                 .then(participants => {

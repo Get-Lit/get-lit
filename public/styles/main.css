@@ -155,7 +155,7 @@ footer {
 }
 
 #home-why-img {
-	margin: 30px 40px 0 0;
+	margin: 20px 40px 0 0;
 }
 
 #home-why-options img {
@@ -685,6 +685,7 @@ footer {
 .title-link {
 	color: #96951B;
 	text-decoration: none;
+	width: 75%;
 }
 
 .title-link:hover {
@@ -695,6 +696,13 @@ footer {
 /* Room detail */
 .room-description {
 	font-size: 22px;
+}
+
+#room-book-title {
+	margin-left: 15px;
+	color: #d8b7af;
+	font-style: italic;
+
 }
 
 #comment-div {

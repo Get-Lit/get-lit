@@ -3,7 +3,10 @@
 
         {{!-- Nombre y descripción de la room --}}
         <div>
-            <h2>{{ room.name }}</h2>
+            <div class="d-flex justify-content-between">
+                <h2>{{ room.name }}</h2>
+                <h4 id="room-book-title">{{room.book.title}}</h4>
+            </div>
             <p class="room-description">{{ room.description }}</p>
             <hr>
         </div>
@@ -53,10 +56,12 @@
                                         <h4 class="user-name">{{comment.user.name}}</h4>
                                         <p>{{comment.content}}</p>
                                     </div>
+                                    {{#ifEquals ../currentUser.id comment.user.id}}
                                         <form action="/comment/{{comment.id}}/delete" method="POST">
                                             <input type="text" name="id" class="d-none" value="{{../room.id}}">
                                             <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
                                         </form>
+                                    {{/ifEquals}}
                                 </div>
                             </div>
                             
@@ -70,10 +75,13 @@
                                                 <h4 class="user-name">{{reply.user.name}}</h4>
                                                 <p>{{reply.content}}</p>
                                             </div>
+
+                                            {{#ifEquals ../../currentUser.id reply.user.id}}
                                             <form action="/comment/{{reply.id}}/delete" method="POST">
                                                 <input type="text" name="id" class="d-none" value="{{../../room.id}}">
                                                 <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
                                             </form>
+                                            {{/ifEquals}}
                                         </div>
                                     </div>
                                     <hr class="m-0">
