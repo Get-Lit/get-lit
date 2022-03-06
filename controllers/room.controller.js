@@ -10,9 +10,9 @@ const Comment = require('../models/comment.model');
 module.exports.list = (req, res, next) => {
     Room.find()
         .populate({ path: 'participants', populate: { path: 'user' }})
-        .populate({ path: 'book' })
+        .populate({ path: 'book comments' })
         .then(rooms => {
-            console.log(rooms[0].participants)
+            console.log(rooms[0].participants.length)
             res.render('rooms/list', { rooms });
         })
         .catch(error => next(error));

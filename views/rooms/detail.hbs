@@ -45,7 +45,7 @@
             </div>
 
             {{!-- Mostrar los comentarios que tiene la sala --}}
-            <h3>Comments</h3>
+            <h3>Comments: {{room.comments.length}}</h3>
                 {{#if room.comments}}
                     {{#each room.comments as |comment|}}    
                         <div class="card mt-4">
