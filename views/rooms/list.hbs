@@ -25,7 +25,9 @@
                 
                 <div class="room-info">
                     <i class="bi bi-chat-square"></i> {{room.comments.length}} Comments |
-                    <i class="bi bi-share"></i> Share | 
+                    <button class="share-room-btn" value="http://localhost:3000/rooms/{{room._id}}">
+                        <i class="bi bi-share"></i> Share | 
+                    </button>
                     <i class="bi bi-person"></i> {{room.participants.length}} Bookworms: 
                     {{#each room.participants as |user| }}
                         <img class="participant-room-card-img" src="{{user.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
@@ -44,3 +46,4 @@
     {{/if}}
     </div>
 </div>
+<script src="/js/share-room.js"></script>

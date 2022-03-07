@@ -753,6 +753,12 @@ footer {
 	margin: 10px 0 0 0;
 }
 
+.share-room-btn {
+	outline: none;
+  	background: transparent;
+  	border: 1px solid transparent;
+}
+
 
 /* Room detail */
 .room-description {
