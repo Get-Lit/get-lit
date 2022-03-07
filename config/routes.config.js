@@ -65,6 +65,7 @@ router.get('/books/:id', isAuthenticated, book.detail);
 // Room Routes
 router.get('/rooms', room.list);
 router.get('/rooms/create', isAuthenticated, room.create);
+router.get('/rooms/:id/create', isAuthenticated, room.createFromBook);
 router.post('/rooms/create', isAuthenticated, room.doCreate);
 router.get('/rooms/:id/edit', isAuthenticated, isAdmin, room.edit);
 router.post('/rooms/:id/edit', isAuthenticated, isAdmin, room.doEdit);

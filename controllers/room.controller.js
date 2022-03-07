@@ -40,7 +40,18 @@ module.exports.detail = (req, res, next) => {
 module.exports.create = (req, res, next) => {
     Book.find()
         .then(books => {
-            res.render('rooms/createRoom', { books });
+                res.render('rooms/createRoom', { books });
+        })
+        .catch(error => next(error))
+};
+
+module.exports.createFromBook = (req, res, next) => {
+    Book.find()
+        .then(books => {
+            return Book.findById(req.params.id)
+                .then(book => {
+                    res.render('rooms/createRoom', { books, book });
+                })
         })
         .catch(error => next(error))
 };
