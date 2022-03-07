@@ -3,9 +3,9 @@
 		<h2>New Room</h2>
         <div class="form-group">
         	<select class="form-control text-secondary {{#if errors.book}}is-invalid{{/if}}" name="book" required="required" value="{{room.book}}">
-                <option class="text-secondary" selected>Select a Book</option>
+                <option class="text-secondary">Select a Book</option>
                 {{#each books as |book|}}
-                    <option value="{{book._id}}">{{book.title}}</option>
+                    <option {{#ifEquals ../book.id book.id}} selected {{/ifEquals}} value="{{book._id}}">{{book.title}}</option>
                 {{/each}}
             </select>
             {{#if errors.book}} <div class="invalid-feedback">{{errors.book}}</div>{{/if}}
