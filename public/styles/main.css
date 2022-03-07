@@ -860,5 +860,239 @@ footer {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 2%
+	padding: 2%;
+}
+
+/* Loadgin Div */
+/* LOADING PAGE ANIMATIONS */
+
+.loading-div {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #484131;
+    animation-name: loaderAnimationDiv;
+    animation-duration: 3s;
+    opacity: 0;
+}
+
+#book-loading {
+	position: absolute;
+	top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 260px;
+    animation-name: loaderAnimationBook;
+    animation-duration: 3s;
+}
+
+#title-loading {
+	position: absolute;
+	top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 200px;
+    animation-name: loaderAnimationBigStar;
+    animation-duration: 3s;
+}
+
+#big-star-loading {
+	position: absolute;
+	top: 46%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 50px;
+    animation-name: loaderAnimationBigStar;
+    animation-duration: 3s;
+}
+
+#medium-star-loading {
+	position: absolute;
+	top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 35px;
+    animation-name: loaderAnimationSmallStar;
+    animation-duration: 3s;
+}
+
+#small-star-loading {
+	position: absolute;
+	top: 46%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 20px;
+    animation-name: loaderAnimationSmallStar;
+    animation-duration: 3s;
+}
+
+#brillo-loading {
+	position: absolute;
+	top: 56%;
+    left: 46.5%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 20px;
+    animation-name: loaderAnimationBrillo;
+    animation-duration: 3s;
+}
+
+#brillo-loading-2 {
+	position: absolute;
+	top: 54%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 20px;
+    animation-name: loaderAnimationBrillo;
+    animation-duration: 3s;
+}
+
+@keyframes loaderAnimationBigStar {
+    0% {
+        opacity: 0;
+    }
+	6% {
+        opacity: 1;
+    }
+	12% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+	30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes loaderAnimationMediumStar {
+    0% {
+        opacity: 1;
+    }
+	15% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+	30% {
+        opacity: 1;
+    }
+    45% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes loaderAnimationSmallStar {
+    0% {
+        opacity: 0;
+    }
+	10% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+	30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+	70% {
+        opacity: 1;
+    }
+	80% {
+        opacity: 0;
+    }
+	90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes loaderAnimationBrillo {
+    0% {
+        opacity: 0;
+    }
+	10% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+	30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+	70% {
+        opacity: 1;
+    }
+	80% {
+        opacity: 0;
+    }
+	90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes loaderAnimationDiv {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+
+    }
+    100% {
+        opacity: 0;
+    }
 }
