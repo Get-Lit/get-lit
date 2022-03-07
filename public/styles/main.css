@@ -93,7 +93,7 @@ footer {
 }
 
 #random-quote-div {
-	width: 500px;
+	width: 400px;
 	border-left: 1px solid #ffd9d0;
 	border-right: 1px solid #ffd9d0;
 }
@@ -171,7 +171,7 @@ footer {
 }
 
 #home-why-img {
-	margin: 20px 40px 0 0;
+	margin: 6px 40px 0 0;
 }
 
 #home-why-options img {
@@ -422,6 +422,11 @@ footer {
 
 .profile-content-div .room-card:first-child {
 	margin-top: 0;
+}
+
+#profile-rooms-div, #profile-books-div {
+	height: 70vh;
+	overflow-y: auto;
 }
 
 .participant-room-card-img {
