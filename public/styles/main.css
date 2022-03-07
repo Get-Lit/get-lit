@@ -6,7 +6,13 @@ pink: #F3E7E4,
 light-yellow: #FCFAEC
 */
 
+*, html {
+    margin:0;
+    padding:0;  
+}
+
 body {
+	width: 100vw;
 	min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -27,13 +33,6 @@ p {
 
 #content-wrap {	
 	padding-bottom: 2.5rem; /* Footer height */
-}
-
-#ul-separated {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 footer {
@@ -62,21 +61,8 @@ footer {
 	width: 130px;
 }
 
-.navbar-brand {
-	margin-left: 2.5%;
-}
-
-#ul-separated {
-	margin-right: 2.5%;
-}
-
-.navbar-toggler {
-	background-color: #96951B;
-	margin-right: 2.5%;
-}
-
-.navbar-toggler span {
-	color: white;
+.navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(150, 149, 27, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar-nav {
@@ -90,6 +76,13 @@ footer {
 	height: 40px;
 	border-radius: 10px;
 	margin: 0 0 0 10px;
+}
+
+#ul-separated {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #random-quote-div {
@@ -117,14 +110,60 @@ footer {
 	min-width: 80px;
 }
 
+.dropdown-content a {
+	text-align: center;
+}
+
 .dropdown-content {
+	width: 100px;
 	display: none;
 	position: absolute;
+	top: 125%;
+	left: -25%;
 	background-color: #484131;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+@media only screen and (max-width: 600px) {
+	#ul-separated {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#ul-separated img {
+		width: 40px;
+		height: 40px;
+		border-radius: 10px;
+		margin: 10px 0 5px 20px;
+	}
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+		min-width: 80px;
+	}
+	
+	.dropdown-content a {
+		text-align: center;
+	}
+	
+	.dropdown-content {
+		width: 100px;
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: -14%;
+		background-color: #484131;
+	}
+	
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
 }
 
 
