@@ -12,7 +12,6 @@ module.exports.list = (req, res, next) => {
         .populate({ path: 'participants', populate: { path: 'user' }})
         .populate({ path: 'book comments' })
         .then(rooms => {
-            console.log(rooms[0].participants.length)
             res.render('rooms/list', { rooms });
         })
         .catch(error => next(error));
