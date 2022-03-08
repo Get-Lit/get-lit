@@ -3,7 +3,7 @@
         <form action="/rooms/{{room.id}}/edit" method="POST">
             <h2>Edit Room</h2>
             <div class="form-group">
-                <input type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" name="title" required="required" value="{{room.name}}">
+                <input type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" name="name" required="required" value="{{room.name}}">
             </div>
             <div class="form-group">
                 <textarea class="form-control {{#if errors.description}}is-invalid{{/if}}" name="description">{{room.description}}</textarea>
