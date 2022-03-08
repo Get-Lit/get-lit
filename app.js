@@ -34,6 +34,7 @@ app.use(passport.session());
 // Flash Middleware
 app.use((req, res, next) => {
     res.locals.flashMessage = req.flash('flashMessage');
+    res.locals.contentError = req.flash('contentError');
     next();
 })
 

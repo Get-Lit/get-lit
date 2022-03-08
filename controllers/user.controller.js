@@ -52,13 +52,18 @@ module.exports.doComment = (req, res, next) => {
     const user = req.user;
     const content = req.body.content;
 
-    Comment.create({
-        room: roomId,
-        user: user.id,
-        content: content
-    })
-    .then(() => res.redirect(`/rooms/${roomId}`))
-    .catch(error => next(error))
+    if (!req.body.content) {
+        req.flash('contentError', 'You need to write something!');
+        res.redirect(`/rooms/${roomId}`);
+    } else {
+       Comment.create({
+            room: roomId,
+            user: user.id,
+            content: content
+        })
+        .then(() => res.redirect(`/rooms/${roomId}`))
+        .catch(error => next(error))
+    }
 }
 
 module.exports.doReply = (req, res, next) => {
@@ -67,14 +72,19 @@ module.exports.doReply = (req, res, next) => {
     const content = req.body.content;
     const comment = req.params.id;
 
-    Reply.create({
-        room: roomId,
-        user: user.id,
-        content,
-        comment
-    })
-    .then(() => res.redirect(`/rooms/${roomId}`))
-    .catch(error => next(error))
+    if (!req.body.content) {
+        req.flash('contentError', 'You need to write something!');
+        res.redirect(`/rooms/${roomId}`);
+    } else {
+        Reply.create({
+            room: roomId,
+            user: user.id,
+            content,
+            comment
+        })
+        .then(() => res.redirect(`/rooms/${roomId}`))
+        .catch(error => next(error))
+    }
 }
 
 // Like books
