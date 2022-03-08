@@ -33,7 +33,7 @@ const startMap = () => {
             service.nearbySearch(request, (results, status) => {
               if (status === google.maps.places.PlacesServiceStatus.OK && results) {
                 for (let i = 0; i < results.length; i++) {
-                  createMarker(results[i]);m
+                  createMarker(results[i]);
                   map.setCenter(userLocation);
                 }
               }
