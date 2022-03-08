@@ -892,7 +892,7 @@ footer {
 #title-loading {
 	position: absolute;
 	top: 35%;
-    left: 50%;
+    left: 49.5%;
     transform: translate(-50%, -50%);
     opacity: 1;
     width: 200px;
