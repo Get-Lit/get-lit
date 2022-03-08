@@ -1,49 +1,69 @@
 <div class="container mt-5">
-
-    <div>
+    <div class="d-flex align-items-center mb-3">
         {{#if book}}
             <h1>Rooms for <a class="title-link" href="/books/{{book._id}}">{{book.title}} - {{book.author}}</a></h1>
         {{else}}
             <h1>All rooms</h1>
         {{/if}}
 
-        <a class="btn w-25 mt-1" {{#if book}} href="/rooms/{{book._id}}/create" {{else}} href="/rooms/create" {{/if}}>CREATE NEW ROOM</a>
+        <a class="btn create-new-room" {{#if book}} href="/rooms/{{book._id}}/create" {{else}} href="/rooms/create" {{/if}}>CREATE NEW ROOM</a> 
     </div>
 
-    <div class="row d-flex justify-content-around">
-    {{#if rooms}}
-        {{#each rooms as |room|}}
-        <div class="card room-card">
-            <div class="card-body">
-
-                <div class="d-flex justify-content-between">
-                    <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title mt-2">{{ room.name }}</h4></a>
-                    <h5 id="room-book-title">{{room.book.title}}</h5>
-                </div>
-
-                <p class="card-text">{{ room.description }}</p>
-                
-                <div class="room-info">
-                    <i class="bi bi-chat-square"></i> {{room.comments.length}} Comments |
-                    <button class="share-room-btn" value="http://localhost:3000/rooms/{{room._id}}">
-                        <i class="bi bi-share"></i> Share | 
-                    </button>
-                    <i class="bi bi-person"></i> {{room.participants.length}} Bookworms: 
-                    {{#each room.participants as |user| }}
-                        <img class="participant-room-card-img" src="{{user.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-        {{/each}}
-    {{else}}
-    <div class="center-div">
-        <div id="error-div" class="mt-5">
-            <h4>There are no rooms at the moment. Create a new one and start commenting!</h4>
-            <img src="/img/empty.svg" alt="Empty icon" class="w-50">
-        </div>
+    {{!-- Filtrar rooms por nombre o por libro --}}
+    <div class="container filter">
+    <div>
+        <label for="findRoomByName">Name:</label>
+        <input type="text" id="findRoomByName" onkeyup="filterRooms()" placeholder="Filter rooms by name..." class="filter-input">
     </div>
-    {{/if}}
+
+    <div>
+        <label for="findRoomByBook">Book:</label>
+        <input type="text" id="findRoomByBook" onkeyup="filterRooms()" placeholder="Filter rooms by book..." class="filter-input">
     </div>
 </div>
+
+{{!-- Lista de rooms --}}
+<div class="row d-flex justify-content-around">
+    {{#if rooms}}
+        {{#each rooms as |room|}}
+            <div class="card room-card">
+                <div class="card-body">
+
+                    {{!-- Nombre y libro de la room --}}
+                    <div class="d-flex justify-content-between">
+                        <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title mt-2">{{ room.name }}</h4></a>
+                        <h5 id="room-book-title">{{room.book.title}}</h5>
+                    </div>
+
+                    {{!-- Descripción de la room --}}
+                    <p class="card-text">{{ room.description }}</p>
+                    
+                    {{!-- Info extra de la room (comentarios, compartir y participantes) --}}
+                    <div class="room-info">
+                        <i class="bi bi-chat-square"></i> {{room.comments.length}} Comments |
+                        <button class="share-room-btn" value="http://localhost:3000/rooms/{{room._id}}">
+                            <i class="bi bi-share"></i> Share | 
+                        </button>
+                        <i class="bi bi-person"></i> {{room.participants.length}} Bookworms: 
+                        {{#each room.participants as |user| }}
+                            <img class="participant-room-card-img" src="{{user.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+
+    {{!-- Si no hay ninguna room --}}
+    {{else}}
+        <div class="center-div">
+            <div id="error-div" class="mt-5">
+                <h4>There are no rooms at the moment. Create a new one and start commenting!</h4>
+                <img src="/img/empty.svg" alt="Empty icon" class="w-50">
+            </div>
+        </div>
+    {{/if}}
+</div>
+
+{{!-- Scripts --}}
 <script src="/js/share-room.js"></script>
+<script src="/js/filter.js"></script>

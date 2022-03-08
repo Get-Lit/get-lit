@@ -1,39 +1,66 @@
+{{!-- Añadir un nuevo libro de la API de Google --}}
 <div id="search-books-div" class="d-flex flex-column justify-content-center align-items-center mb-5">
     <div id="search-books-inside-div" class="d-flex justify-content-center align-items-center">
         <h5 class="w-50">Can't find your book?</h5>
         <a class="btn w-50" href="/books/create">ADD NEW BOOK</a>
     </div>
 </div>
-<div class="container">
-    <div class="row d-flex mb-3">
-        {{#each books as |book|}}
-        <div class="card book-card p-2 m-3">
-            <div class="card-img">
-                <img src="{{book.cover}}" alt="Book cover">
-            </div>
-            <div class="card-body">
-                <div class="title-and-like">
-                    <h4 class="card-title">{{ book.title }}</h4>
-                    {{#if ../currentUser}}
-                        <button class="like-button border-0">
-                            <i 
-                                data-id="{{book.id}}"
-                                class="like-action fa fa-heart {{#userLikedBook likes=../likes book=book}}icon-liked{{/userLikedBook}}"
-                            >
-                            </i>
-                        </button>
-                    {{/if}}
-                <p class="card-text">{{ book.author }}</p>
-                </div>
-                <div class="book-card-btns">
-                    <a href="/books/{{book._id}}" class="btn mt-auto">DETAILS</a>
-                    <a href="/books/{{book._id}}/rooms" class="btn mt-1">VISIT ROOMS</a>
-                </div>
-            </div>
-        </div>
-        {{/each}}
+
+{{!-- Filtrar por título o autor del libro --}}
+<div class="container filter">
+    <div>
+        <label for="findBookByTitle">Title:</label>
+        <input type="text" id="findBookByTitle" onkeyup="filterBooks()" placeholder="Filter books by title..." class="filter-input">
+    </div>
+
+    <div>
+        <label for="findBookByAuthor">Author:</label>
+        <input type="text" id="findBookByAuthor" onkeyup="filterBooks()" placeholder="Filter books by author..." class="filter-input">
     </div>
 </div>
 
+{{!-- Lista de libros --}}
+<div class="container">
+    <div class="row d-flex mb-3">
+
+        {{#each books as |book|}}
+            <div class="card book-card p-2 m-3">
+
+                {{!-- Imagen de la portada --}}
+                <div class="card-img">
+                    <img src="{{book.cover}}" alt="Book cover"> 
+                </div>
+
+                {{!-- Título, likes y autor --}}
+                <div class="card-body">
+                    <div class="title-and-like">
+                        <h4 class="card-title">{{ book.title }}</h4>
+                        {{#if ../currentUser}}
+                            <button class="like-button border-0">
+                                <i 
+                                    data-id="{{book.id}}"
+                                    class="like-action fa fa-heart {{#userLikedBook likes=../likes book=book}}icon-liked{{/userLikedBook}}"
+                                >
+                                </i>
+                            </button>
+                        {{/if}}
+                    <p class="card-text">{{ book.author }}</p>
+                    </div>
+
+                    {{!-- Botones --}}
+                    <div class="book-card-btns">
+                        <a href="/books/{{book._id}}" class="btn mt-auto">DETAILS</a>
+                        <a href="/books/{{book._id}}/rooms" class="btn mt-1">VISIT ROOMS</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+
+    </div>
+</div>
+
+{{!-- Scripts --}}
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/axios.js"></script>
+<script src="/js/filter.js"></script>
+
