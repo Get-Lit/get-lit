@@ -615,6 +615,10 @@ footer {
 }
 
 /* Book List */
+#books-list-div {
+	margin-left: 15px;
+}
+
 .book-card {
 	max-width: 400px;
 	width: 400px;
