@@ -264,9 +264,10 @@ footer {
 
 /* Forms */
 .form-control {
-	height: 40px;
+	min-height: 40px;
 	box-shadow: none;
 }
+
 .form-control:focus {
 	border-color: #484131;
 }
@@ -275,7 +276,7 @@ footer {
 }
 .signup-form {
 	width: 500px;
-	margin: 15px auto;
+	margin: 15px 20px;
 	padding: 30px 0;
   	font-size: 15px;
 }
@@ -527,19 +528,15 @@ footer {
 
 
 /* About */
-.github-btn {
-	width: 50px;
-}
-
 .about-div {
+	margin-top: 30px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 }
 
 .about-div > div {
-	text-align: center;
-	width: 80%;
+	width: 90%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -547,21 +544,38 @@ footer {
 }
 
 .about-img {
-	width: 200px;
-	height: 200px;
+	width: 13vw;
+	height: 13vw;
 	object-fit: cover;
 	border-radius: 20%;
+	margin-right: 15px;
 }
 
 .about-card {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	padding: 10px;
 }
+
 
 .max-width {
 	max-width: 350px;
-	padding-left: 5%;
+}
+
+.social-links {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.link-icon {
+	color: #484131;
+	font-size: 25px;
+	padding: 0 20px 8px 0;
+}
+
+.link-icon:hover{
+	color: #d8b7af;
 }
 
 /* Toast Div */
@@ -790,6 +804,10 @@ footer {
 	height: fit-content;
 	font-size: 13px;
 	margin-left: 30px;
+}
+
+.new-room-img {
+	max-width: 300px;
 }
 
 
