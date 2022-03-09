@@ -10,58 +10,59 @@
     </div>
 
     {{!-- Filtrar rooms por nombre o por libro --}}
-    <div class="container filter">
-    <div>
-        <label for="findRoomByName">Name:</label>
-        <input type="text" id="findRoomByName" onkeyup="filterRooms()" placeholder="Filter rooms by name..." class="filter-input">
+    <div id="filter-rooms" class="filter">
+        <div>
+            <label for="findRoomByName">Name:</label>
+            <input type="text" id="findRoomByName" onkeyup="filterRooms()" placeholder="Filter rooms by name..." class="filter-input">
+        </div>
+
+        <div>
+            <label for="findRoomByBook">Book:</label>
+            <input type="text" id="findRoomByBook" onkeyup="filterRooms()" placeholder="Filter rooms by book..." class="filter-input">
+        </div>
     </div>
 
-    <div>
-        <label for="findRoomByBook">Book:</label>
-        <input type="text" id="findRoomByBook" onkeyup="filterRooms()" placeholder="Filter rooms by book..." class="filter-input">
-    </div>
-</div>
+    {{!-- Lista de rooms --}}
+    <div class="row d-flex justify-content-around">
+        {{#if rooms}}
+            {{#each rooms as |room|}}
+                <div class="card room-card">
+                    <div class="card-body">
 
-{{!-- Lista de rooms --}}
-<div class="row d-flex justify-content-around">
-    {{#if rooms}}
-        {{#each rooms as |room|}}
-            <div class="card room-card">
-                <div class="card-body">
+                        {{!-- Nombre y libro de la room --}}
+                        <div class="d-flex justify-content-between">
+                            <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title mt-2">{{ room.name }}</h4></a>
+                            <h5 id="room-book-title">{{room.book.title}}</h5>
+                        </div>
 
-                    {{!-- Nombre y libro de la room --}}
-                    <div class="d-flex justify-content-between">
-                        <a class="title-link" href="/rooms/{{room._id}}"><h4 class="card-title mt-2">{{ room.name }}</h4></a>
-                        <h5 id="room-book-title">{{room.book.title}}</h5>
-                    </div>
+                        {{!-- Descripción de la room --}}
+                        <p class="card-text">{{ room.description }}</p>
 
-                    {{!-- Descripción de la room --}}
-                    <p class="card-text">{{ room.description }}</p>
-                    
-                    {{!-- Info extra de la room (comentarios, compartir y participantes) --}}
-                    <div class="room-info">
-                        <i class="bi bi-chat-square"></i> {{room.comments.length}} Comment{{#ifEquals room.comments.length 1}}{{else}}s{{/ifEquals}} |
-                        <button class="share-room-btn" value="http://localhost:3000/rooms/{{room._id}}">
-                            <i class="bi bi-share"></i> Share | 
-                        </button>
-                        <i class="bi bi-person"></i> {{room.participants.length}} Bookworm{{#ifEquals room.participants.length 1}}{{else}}s{{/ifEquals}}:
-                        {{#each room.participants as |user| }}
-                            <img class="participant-room-card-img" src="{{user.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
-                        {{/each}}
+                        {{!-- Info extra de la room (comentarios, compartir y participantes) --}}
+                        <div class="room-info">
+                            <i class="bi bi-chat-square"></i> {{room.comments.length}} Comment{{#ifEquals room.comments.length 1}}{{else}}s{{/ifEquals}} |
+                            <button class="share-room-btn" value="http://localhost:3000/rooms/{{room._id}}">
+                                <i class="bi bi-share"></i> Share | 
+                            </button>
+                            <i class="bi bi-person"></i> {{room.participants.length}} Bookworm{{#ifEquals room.participants.length 1}}{{else}}s{{/ifEquals}}:
+                            {{#each room.participants as |user| }}
+                                <img class="participant-room-card-img" src="{{user.user.image}}" alt="Participant image" referrerpolicy="no-referrer">
+                            {{/each}}
+                        </div>
                     </div>
                 </div>
-            </div>
-        {{/each}}
+            {{/each}}
 
-    {{!-- Si no hay ninguna room --}}
-    {{else}}
-        <div class="center-div">
-            <div id="error-div" class="mt-5">
-                <h4>There are no rooms at the moment. Create a new one and start commenting!</h4>
-                <img src="/img/empty.svg" alt="Empty icon" class="w-50">
+        {{!-- Si no hay ninguna room --}}
+        {{else}}
+            <div class="center-div">
+                <div id="error-div" class="mt-5">
+                    <h4>There are no rooms at the moment. Create a new one and start commenting!</h4>
+                    <img src="/img/empty.svg" alt="Empty icon" class="w-50">
+                </div>
             </div>
-        </div>
-    {{/if}}
+        {{/if}}
+    </div>
 </div>
 
 {{!-- Scripts --}}
