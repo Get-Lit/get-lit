@@ -1,4 +1,7 @@
-//Funcionality to change the text of the join room button
+const httpClient = axios.create({
+    baseURL: 'http://localhost:3000'
+})
+
 const addParticipant = (id, button) => httpClient.post(`/participant/${id}`)
     .then((response) => {
         if(response.data.success){
