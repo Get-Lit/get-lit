@@ -835,8 +835,15 @@ footer {
 }
 
 .room-reply {
-	padding: 25px 20px;
+	padding: 15px 20px;
 	min-height: 100px;
+}
+
+.textarea {
+	font-size: 16px;
+	padding: 7px 15px 7px 15px;
+	border: 0px solid #ddd;
+	border-radius: 10px;
 }
 
 .comment-img {

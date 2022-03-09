@@ -89,9 +89,9 @@
                             </div>        
                             
                             {{!-- Formulario de reply --}}
-                            <div class="">
+                            <div>
                                 <form class="d-flex justify-content-start align-items-center" action="/comment/{{comment.id}}/reply" method="POST">
-                                    <textarea class="w-100 h-100" name="content" cols="30" placeholder="   Write your reply..."></textarea>
+                                    <textarea class="w-100 textarea" name="content" cols="30" placeholder="Write your reply..."></textarea>
                                     <input type="text" name="id" class="d-none" value="{{../room.id}}">
                                     <button class="btn comment-reply-btn" type="submit">REPLY</button>
                                 </form>
