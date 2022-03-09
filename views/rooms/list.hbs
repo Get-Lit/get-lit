@@ -41,7 +41,7 @@
                         {{!-- Info extra de la room (comentarios, compartir y participantes) --}}
                         <div class="room-info">
                             <i class="bi bi-chat-square"></i> {{room.comments.length}} Comment{{#ifEquals room.comments.length 1}}{{else}}s{{/ifEquals}} |
-                            <button class="share-room-btn" value="http://localhost:3000/rooms/{{room._id}}">
+                            <button class="share-room-btn" value="https://getlit-bookclub.herokuapp.com/rooms/{{room._id}}">
                                 <i class="bi bi-share"></i> Share | 
                             </button>
                             <i class="bi bi-person"></i> {{room.participants.length}} Bookworm{{#ifEquals room.participants.length 1}}{{else}}s{{/ifEquals}}:
