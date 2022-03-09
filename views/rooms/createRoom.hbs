@@ -1,25 +1,32 @@
-<div class="signup-form mb-5">
-    <form action="/rooms/create" method="POST">
-		<h2>New Room</h2>
-        <div class="form-group">
-        	<select class="form-control text-secondary {{#if errors.book}}is-invalid{{/if}}" name="book" required="required" value="{{room.book}}">
-                <option class="text-secondary">Select a Book</option>
-                {{#each books as |book|}}
-                    <option {{#ifEquals ../book.id book.id}} selected {{/ifEquals}} value="{{book._id}}">{{book.title}}</option>
-                {{/each}}
-            </select>
-            {{#if errors.book}} <div class="invalid-feedback">{{errors.book}}</div>{{/if}}
-        </div>
-        <div class="form-group">
-        	<input type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" name="name" placeholder="Room Name" required="required" value="{{room.name}}">
-            {{#if errors.name}} <div class="invalid-feedback">{{errors.name}}</div>{{/if}}
-        </div>
-        <div class="form-group">
-        	<textarea type="text" class="form-control {{#if errors.description}}is-invalid{{/if}}" name="description" placeholder="Room Description" required="required" value="{{room.description}}"></textarea>
-            {{#if errors.description}} <div class="invalid-feedback">{{errors.description}}</div>{{/if}}
-        </div>
-		<div class="form-group signup-btn-div">
-            <button type="submit" class="btn btn-lg btn-block">CREATE ROOM</button>
-        </div>
-    </form>
+<div class="d-flex justify-content-around">
+    <img src="/img/chat1.svg" alt="" class="new-room-img">
+
+    <div class="signup-form mb-5">
+        <form action="/rooms/create" method="POST">
+            <h2>New Room</h2>
+            <div class="form-group">
+                <select class="form-control text-secondary {{#if errors.book}}is-invalid{{/if}}" name="book" required="required" value="{{room.book}}">
+                    <option class="text-secondary">Select a Book</option>
+                    {{#each books as |book|}}
+                        <option {{#ifEquals ../book.id book.id}} selected {{/ifEquals}} value="{{book._id}}">{{book.title}}</option>
+                    {{/each}}
+                </select>
+                {{#if errors.book}} <div class="invalid-feedback">{{errors.book}}</div>{{/if}}
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" name="name" placeholder="Room Name" required="required" value="{{room.name}}">
+                {{#if errors.name}} <div class="invalid-feedback">{{errors.name}}</div>{{/if}}
+            </div>
+            <div class="form-group">
+                <textarea type="text" class="form-control {{#if errors.description}}is-invalid{{/if}}" name="description" placeholder="Room Description" required="required" value="{{room.description}}"></textarea>
+                {{#if errors.description}} <div class="invalid-feedback">{{errors.description}}</div>{{/if}}
+            </div>
+            <div class="form-group signup-btn-div">
+                <button type="submit" class="btn btn-lg btn-block">CREATE ROOM</button>
+            </div>
+        </form>
+    </div>
+
+    <img src="/img/chat2.svg" alt="" class="new-room-img">
+
 </div>

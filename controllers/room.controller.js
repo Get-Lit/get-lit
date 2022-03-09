@@ -67,6 +67,13 @@ module.exports.doCreate = (req, res, next) => {
                             name: 'Room name already in use.'
                         }, room: roomFound, books });
                     })
+            } if (room.book === "Select a Book") {
+                return Book.find()
+                    .then(books => {
+                        res.render('rooms/createRoom', { errors: { 
+                            book: 'You need to select a book.'
+                        }, room: roomFound, books });
+                    })
             } else {
                 return Room.create(room)
                     .then((room) => {
