@@ -1,5 +1,5 @@
 const httpClient = axios.create({
-    baseURL: 'https://getlit-bookclub.herokuapp.com' || 'http://localhost:3000'
+    baseURL: 'http://getlit-bookclub.herokuapp.com' || 'http://localhost:3000'
 })
 
 const likeBook = (id, icon) => httpClient.post(`/like/${id}`)
