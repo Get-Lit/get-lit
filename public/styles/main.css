@@ -41,6 +41,16 @@ footer {
 	height: 2.5rem;
 }
 
+footer h6 {
+	color: #ffd9d0;
+}
+
+@media only screen and (max-width: 600px) {
+	#contact-footer-div {
+		margin-bottom: 50px !important;
+	}
+}
+
 /* Navbar */
 .navbar {
 	background-color: #484131;
@@ -261,6 +271,130 @@ footer {
 	margin-top: 20px;
 }
 
+@media only screen and (max-width: 600px) {
+	.div-flex-row {
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	#home-intro .btn {
+		margin-right: 2px;
+		width: 26%;
+		font-size: 10px;
+	}
+
+	#home-intro-btns {
+		margin-top: 8px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#home-intro h1 {
+		text-align: center;
+		margin:  20px 20px 0 20px;
+		font-size: 24px;
+	}
+	
+	#home-intro-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: 50px;
+		width: 100%;
+	}
+
+	#home-intro-img {
+		width: 200px;
+	}
+	
+	#home-intro img {
+		width: 200px;
+		margin-top: 60px;
+	}
+
+	/**/
+	
+	#home-why {
+		flex-direction: column;
+		background-color: #efede1;
+		padding: 0;
+	}
+	
+	#home-why h5 {
+		font-family: 'Mohave', sans-serif;
+		font-style: italic;
+		writing-mode: horizontal-tb;
+		letter-spacing: 2px;
+		margin: 100px 0 0 0;
+	}
+	
+	#home-why-img img {
+		display: none;
+	}
+	
+	#home-why-options img {
+		width: 25px;
+		margin-right: 20px;
+		filter: invert(91%) sepia(8%) saturate(5784%) hue-rotate(298deg) brightness(114%) contrast(117%);
+	}
+	
+	#home-why-options div {
+		margin-top: 40px;
+	}
+
+	#home-why-options div:first-child {
+		margin-top: 10px;
+	}
+	
+	#home-why-options p {
+		font-size: 18px;
+	}
+	
+	#home-why-text {
+		margin: 0;
+	}
+	
+	#home-why-options {
+		width: 100%;
+		margin-bottom: 70px;
+	}
+
+	/**/
+
+	#home-bookshops {
+		flex-direction: column;
+	}
+
+	#home-bookshops-text {
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	#home-bookshops img {
+		width: 200px;
+		margin: 70px 0 90px 0;
+	}
+	
+	#home-bookshops .btn {
+		width: 50%;
+		margin-top: 20px;
+		font-size: 10px;
+	}
+	
+	#home-bookshops h2 {
+		text-align: center;
+		width: 100%;
+		margin-top: 10px;
+		font-size: 22px;
+	}
+}
+
 /* Forms */
 .form-control {
 	min-height: 40px;
@@ -435,6 +569,16 @@ footer {
 	color: #484131;
 }
 
+@media only screen and (max-width: 600px) {
+	footer p {
+		font-size: 16px;
+	}
+
+	#get-lit-footer {
+		margin: 0 50px;
+	}
+}
+
 
 /* Profile */
 #profile-div-container {
@@ -513,6 +657,80 @@ footer {
 
 .margin-button {
 	margin-left: 13px;
+}
+
+@media only screen and (max-width: 600px) {
+	#profile-div-container {
+		margin: 2% 0 2% 0;
+		width: 100vw;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.profile-div {
+		justify-content: center;
+		align-items: center;
+		margin: 10px 0;
+	}
+
+	.profile-div h2 {
+		font-size: 20px;
+	}
+
+	.profile-div p {
+		font-size: 16px;
+	}
+
+	.profile-content-div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#profile-info-div a {
+		margin-bottom: 10px;
+		font-size: 12px;
+	}
+
+	#profile-info-div img {
+		margin-top: 10px;
+	}
+
+	#profile-rooms-div, #profile-books-div {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		height: 25vh;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+
+	#profile-rooms-div .card, #profile-books-div .card {
+		width: 95% !important;
+		height: 100% !important;
+		display: inherit;
+		min-width: 95%;
+		min-height: 100%;
+		margin: 0 5px 0 0;
+	}
+
+	#profile-rooms-div .card-body {
+		margin-top: 15px;
+	}
+
+	#profile-rooms-div .card-text {
+		height: auto;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	#profile-rooms-div .card-body > div {
+		margin-top: auto;
+	}
 }
 
 
@@ -762,6 +980,60 @@ footer {
 	margin-bottom: 12px;
 }
 
+@media only screen and (max-width: 600px) {
+	#search-books-inside-div h5 {
+		font-size: 15px;
+		width: 35% !important;
+		margin-top: 6px;
+	}
+
+	#search-books-inside-div a {
+		width: 35% !important;
+		font-size: 10px;
+	}
+
+	.filter {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-left: 8.5px;
+	}
+
+	.filter label, .filter-input {
+		font-size: 15px;
+	}
+
+	#books-list-div .card {
+		width: 88%;
+	}
+
+	#books-list-div .card img {
+		width: 140px;
+	}
+
+	#books-list-div .book-card-btns a {
+		width: 100%;
+		font-size: 12px;
+	}
+
+	#books-list-div h4 {
+		font-size: 20px;
+	}
+
+	#books-list-div .card-text {
+		font-size: 16px;
+	}
+
+	.like-button {
+		left: 285px;
+	}
+
+	#books-list-div {
+		width: 100%;
+	}
+}
+
 /* Book Detail */
 #book-detail {
 	max-width: 1300px;
@@ -771,6 +1043,53 @@ footer {
 
 #book-detail > img {
 	width: 300px;	
+}
+
+@media only screen and (max-width: 600px) {
+	#book-detail {
+		width: 100%;
+		max-width: 100%;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	#book-details-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 0 !important;
+	}
+
+	#book-details-wrapper p {
+		text-align: center;
+		font-size: 15px;
+		width: 80%;
+		margin-bottom: 30px;
+	}
+
+	#book-details-wrapper a, #book-details-wrapper button {
+		width: 150px !important;
+		margin: 0 0 6px 0 !important;
+		font-size: 12px;
+	}
+
+	#book-detail > img {
+		width: 100px;
+		margin: 40px 0 25px 0 !important;	
+	}
+
+	#book-details-title-author {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	#book-details-title-author h1, #book-details-title-author h5 {
+		text-align: center;
+	}
 }
 
 /* Add Book */
@@ -804,6 +1123,47 @@ footer {
 	font-size: 14px;
 }
 
+@media only screen and (max-width: 600px) {
+	.search-div form {
+		flex-direction: column;
+	}
+
+	.search-div input {
+		width: 100%;
+		margin: 0 0 10px 0;
+	}
+
+	.search-div button {
+		width: 100%;
+		font-size: 12px;
+		border-radius: 10px;
+	}
+
+	#books-found .card {
+		width: 90%;
+	}
+
+	#books-found .card button {
+		width: 100%;
+		font-size: 12px;
+	}
+
+	#books-found .card h4 {
+		font-size: 20px;
+	}
+
+	#books-found .card p {
+		font-size: 14px;
+	}
+
+	#books-found img {
+		width: 140px;
+	}
+
+	#edit-book-page > div {
+		margin-top: 30px;
+	}
+}
 
 /* Room List */
 .room-card {
@@ -941,6 +1301,12 @@ footer {
 	justify-content: center;
 	align-items: center;
 	padding: 2%;
+}
+
+@media only screen and (max-width: 600px) {
+	#find-bookshops-div {
+		margin-top: 30px;
+	}
 }
 
 /* Loadgin Div */
@@ -1175,4 +1541,26 @@ footer {
     100% {
         opacity: 0;
     }
+}
+
+@media only screen and (max-width: 600px) {
+	#big-star-loading {
+		left: 44%;
+	}
+	
+	#medium-star-loading {
+		left: 50%;
+	}
+	
+	#small-star-loading {
+		left: 57%;
+	}
+	
+	#brillo-loading {
+		left: 40.5%;
+	}
+	
+	#brillo-loading-2 {
+		left: 60%;
+	}
 }
