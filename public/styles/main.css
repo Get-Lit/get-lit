@@ -270,21 +270,21 @@ footer {
 .form-control:focus {
 	border-color: #484131;
 }
-.form-control, .btn {        
-	border-radius: 3px;
-}
+
 .signup-form {
-	width: 500px;
-	margin: 15px 20px;
-	padding: 30px 0;
+	width: 50%;
+	margin: 15px 0px;
+	padding: 20px 0;
   	font-size: 15px;
 }
+
 .signup-form h2 {
 	color: #484131;
 	margin: 0 0 25px;
 	position: relative;
 	text-align: center;
 }
+
 .signup-form h2:before, .signup-form h2:after {
 	content: "";
 	height: 2px;
@@ -297,14 +297,11 @@ footer {
 .signup-form h2:before {
 	left: 0;
 }
+
 .signup-form h2:after {
 	right: 0;
 }
-.signup-form .hint-text {
-	color: #484131;
-	margin-bottom: 30px;
-	text-align: center;
-}
+
 .signup-form form {
 	color: #999;
 	border-radius: 3px;
@@ -313,35 +310,36 @@ footer {
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 	padding: 30px;
 }
+
 .signup-form .form-group {
 	margin-bottom: 20px;
 }
+
 .signup-form input[type="checkbox"] {
 	margin-top: 3px;
 }
+
 .signup-form .btn {        
 	font-size: 16px;
 	font-weight: bold;		
 	min-width: 140px;
 	outline: none !important;
-}
-.signup-form .row div:first-child {
-	padding-right: 10px;
-}
-.signup-form .row div:last-child {
-	padding-left: 10px;
-}    	
+}	
+
 .signup-form a {
 	color: #fff;
 	text-decoration: underline;
 }
+
 .signup-form a:hover {
 	text-decoration: none;
 }
+
 .signup-form form a {
 	color: #484131;
 	text-decoration: none;
 }	
+
 .signup-form form a:hover {
 	text-decoration: underline;
 }
@@ -372,9 +370,14 @@ footer {
 }
 
 #sign-up-image {
-	margin-top: 140px;
-	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-top: 100px;
+	max-width: 40%;
 }
+
 
 #sign-up-image > img {
 	width: 85%;
@@ -383,10 +386,11 @@ footer {
 
 #login-image {
 	display: flex;
-	align-items: center;
 	flex-direction: column;
-	margin-top: 90px;
-	max-width: 600px;
+	align-items: center;
+	text-align: center;
+	margin-top: 100px;
+	max-width: 40%;
 }
 
 #login-image > img {
@@ -394,6 +398,45 @@ footer {
 	margin-top: 70px;
 }
 
+@media screen and (max-width: 995px) {
+	#sign-up-page {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	}
+
+	.signup-form {
+		width: 90%;
+		margin-top: 0;
+	}
+
+	#sign-up-image {
+		max-width: 90%;
+		margin-bottom: 0px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 35px
+	}
+
+	#sign-up-image > img {
+		display: none;
+	}
+
+	#login-image {
+		max-width: 90%;
+		margin: 0px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		order: 1;
+	}
+	
+	#login-image > img {
+		display: none;
+	}
+
+  }
 
 /* Footer */
 .footer-links {
