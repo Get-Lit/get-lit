@@ -41,6 +41,16 @@ footer {
 	height: 2.5rem;
 }
 
+footer h6 {
+	color: #ffd9d0;
+}
+
+@media only screen and (max-width: 600px) {
+	#contact-footer-div {
+		margin-bottom: 50px !important;
+	}
+}
+
 /* Navbar */
 .navbar {
 	background-color: #484131;
@@ -515,6 +525,80 @@ footer {
 	margin-left: 13px;
 }
 
+@media only screen and (max-width: 600px) {
+	#profile-div-container {
+		margin: 2% 0 2% 0;
+		width: 100vw;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.profile-div {
+		justify-content: center;
+		align-items: center;
+		margin: 10px 0;
+	}
+
+	.profile-div h2 {
+		font-size: 20px;
+	}
+
+	.profile-div p {
+		font-size: 16px;
+	}
+
+	.profile-content-div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#profile-info-div a {
+		margin-bottom: 10px;
+		font-size: 12px;
+	}
+
+	#profile-info-div img {
+		margin-top: 10px;
+	}
+
+	#profile-rooms-div, #profile-books-div {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		height: 25vh;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+
+	#profile-rooms-div .card, #profile-books-div .card {
+		width: 95% !important;
+		height: 100% !important;
+		display: inherit;
+		min-width: 95%;
+		min-height: 100%;
+		margin: 0 5px 0 0;
+	}
+
+	#profile-rooms-div .card-body {
+		margin-top: 15px;
+	}
+
+	#profile-rooms-div .card-text {
+		height: auto;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	#profile-rooms-div .card-body > div {
+		margin-top: auto;
+	}
+}
+
 
 /* Error page */
 .center-div {
@@ -943,6 +1027,12 @@ footer {
 	padding: 2%;
 }
 
+@media only screen and (max-width: 600px) {
+	#find-bookshops-div {
+		margin-top: 30px;
+	}
+}
+
 /* Loadgin Div */
 /* LOADING PAGE ANIMATIONS */
 
@@ -1175,4 +1265,26 @@ footer {
     100% {
         opacity: 0;
     }
+}
+
+@media only screen and (max-width: 600px) {
+	#big-star-loading {
+		left: 44%;
+	}
+	
+	#medium-star-loading {
+		left: 50%;
+	}
+	
+	#small-star-loading {
+		left: 57%;
+	}
+	
+	#brillo-loading {
+		left: 40.5%;
+	}
+	
+	#brillo-loading-2 {
+		left: 60%;
+	}
 }
