@@ -271,6 +271,130 @@ footer h6 {
 	margin-top: 20px;
 }
 
+@media only screen and (max-width: 600px) {
+	.div-flex-row {
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	#home-intro .btn {
+		margin-right: 2px;
+		width: 26%;
+		font-size: 10px;
+	}
+
+	#home-intro-btns {
+		margin-top: 8px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#home-intro h1 {
+		text-align: center;
+		margin:  20px 20px 0 20px;
+		font-size: 24px;
+	}
+	
+	#home-intro-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: 50px;
+		width: 100%;
+	}
+
+	#home-intro-img {
+		width: 200px;
+	}
+	
+	#home-intro img {
+		width: 200px;
+		margin-top: 60px;
+	}
+
+	/**/
+	
+	#home-why {
+		flex-direction: column;
+		background-color: #efede1;
+		padding: 0;
+	}
+	
+	#home-why h5 {
+		font-family: 'Mohave', sans-serif;
+		font-style: italic;
+		writing-mode: horizontal-tb;
+		letter-spacing: 2px;
+		margin: 100px 0 0 0;
+	}
+	
+	#home-why-img img {
+		display: none;
+	}
+	
+	#home-why-options img {
+		width: 25px;
+		margin-right: 20px;
+		filter: invert(91%) sepia(8%) saturate(5784%) hue-rotate(298deg) brightness(114%) contrast(117%);
+	}
+	
+	#home-why-options div {
+		margin-top: 40px;
+	}
+
+	#home-why-options div:first-child {
+		margin-top: 10px;
+	}
+	
+	#home-why-options p {
+		font-size: 18px;
+	}
+	
+	#home-why-text {
+		margin: 0;
+	}
+	
+	#home-why-options {
+		width: 100%;
+		margin-bottom: 70px;
+	}
+
+	/**/
+
+	#home-bookshops {
+		flex-direction: column;
+	}
+
+	#home-bookshops-text {
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	#home-bookshops img {
+		width: 200px;
+		margin: 70px 0 90px 0;
+	}
+	
+	#home-bookshops .btn {
+		width: 50%;
+		margin-top: 20px;
+		font-size: 10px;
+	}
+	
+	#home-bookshops h2 {
+		text-align: center;
+		width: 100%;
+		margin-top: 10px;
+		font-size: 22px;
+	}
+}
+
 /* Forms */
 .form-control {
 	min-height: 40px;
@@ -443,6 +567,12 @@ footer h6 {
 .footer-copyright {
 	background-color: #efede1;
 	color: #484131;
+}
+
+@media only screen and (max-width: 600px) {
+	footer p {
+		font-size: 16px;
+	}
 }
 
 
