@@ -573,6 +573,10 @@ footer h6 {
 	footer p {
 		font-size: 16px;
 	}
+
+	#get-lit-footer {
+		margin: 0 50px;
+	}
 }
 
 
@@ -976,6 +980,60 @@ footer h6 {
 	margin-bottom: 12px;
 }
 
+@media only screen and (max-width: 600px) {
+	#search-books-inside-div h5 {
+		font-size: 15px;
+		width: 35% !important;
+		margin-top: 6px;
+	}
+
+	#search-books-inside-div a {
+		width: 35% !important;
+		font-size: 10px;
+	}
+
+	.filter {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-left: 8.5px;
+	}
+
+	.filter label, .filter-input {
+		font-size: 15px;
+	}
+
+	#books-list-div .card {
+		width: 88%;
+	}
+
+	#books-list-div .card img {
+		width: 140px;
+	}
+
+	#books-list-div .book-card-btns a {
+		width: 100%;
+		font-size: 12px;
+	}
+
+	#books-list-div h4 {
+		font-size: 20px;
+	}
+
+	#books-list-div .card-text {
+		font-size: 16px;
+	}
+
+	.like-button {
+		left: 285px;
+	}
+
+	#books-list-div {
+		width: 100%;
+	}
+}
+
 /* Book Detail */
 #book-detail {
 	max-width: 1300px;
@@ -985,6 +1043,53 @@ footer h6 {
 
 #book-detail > img {
 	width: 300px;	
+}
+
+@media only screen and (max-width: 600px) {
+	#book-detail {
+		width: 100%;
+		max-width: 100%;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	#book-details-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 0 !important;
+	}
+
+	#book-details-wrapper p {
+		text-align: center;
+		font-size: 15px;
+		width: 80%;
+		margin-bottom: 30px;
+	}
+
+	#book-details-wrapper a, #book-details-wrapper button {
+		width: 150px !important;
+		margin: 0 0 6px 0 !important;
+		font-size: 12px;
+	}
+
+	#book-detail > img {
+		width: 100px;
+		margin: 40px 0 25px 0 !important;	
+	}
+
+	#book-details-title-author {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	#book-details-title-author h1, #book-details-title-author h5 {
+		text-align: center;
+	}
 }
 
 /* Add Book */
@@ -1018,6 +1123,47 @@ footer h6 {
 	font-size: 14px;
 }
 
+@media only screen and (max-width: 600px) {
+	.search-div form {
+		flex-direction: column;
+	}
+
+	.search-div input {
+		width: 100%;
+		margin: 0 0 10px 0;
+	}
+
+	.search-div button {
+		width: 100%;
+		font-size: 12px;
+		border-radius: 10px;
+	}
+
+	#books-found .card {
+		width: 90%;
+	}
+
+	#books-found .card button {
+		width: 100%;
+		font-size: 12px;
+	}
+
+	#books-found .card h4 {
+		font-size: 20px;
+	}
+
+	#books-found .card p {
+		font-size: 14px;
+	}
+
+	#books-found img {
+		width: 140px;
+	}
+
+	#edit-book-page > div {
+		margin-top: 30px;
+	}
+}
 
 /* Room List */
 .room-card {
