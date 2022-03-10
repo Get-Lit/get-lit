@@ -264,6 +264,7 @@ footer {
 /* Forms */
 .form-control {
 	min-height: 40px;
+	max-height: 130px;
 	box-shadow: none;
 }
 
@@ -288,7 +289,7 @@ footer {
 .signup-form h2:before, .signup-form h2:after {
 	content: "";
 	height: 2px;
-	width: 30%;
+	width: 25%;
 	background: #d4d4d4;
 	position: absolute;
 	top: 50%;
@@ -369,37 +370,27 @@ footer {
 	color: #6c757d;;
 }
 
-#sign-up-image {
+.form-image {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	margin-top: 100px;
-	max-width: 40%;
-}
-
-
-#sign-up-image > img {
-	width: 85%;
-	margin-top: 80px;
-}
-
-#login-image {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	margin-top: 100px;
-	max-width: 40%;
-}
-
-#login-image > img {
-	width: 70%;
 	margin-top: 70px;
+	max-width: 40%;
+}
+
+
+.form-image > img {
+	width: 85%;
+	margin-top: 40px;
+}
+
+.new-room-img {
+	max-width: 300px;
 }
 
 @media screen and (max-width: 995px) {
-	#sign-up-page {
+	.form-page {
 	  display: flex;
 	  flex-direction: column;
 	  align-items: center;
@@ -408,35 +399,22 @@ footer {
 	.signup-form {
 		width: 90%;
 		margin-top: 0;
+		margin-bottom: 0;
 	}
 
-	#sign-up-image {
+	.form-image {
 		max-width: 90%;
 		margin-bottom: 0px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: 35px
+		margin-top: 30px
 	}
 
-	#sign-up-image > img {
+	.form-image > img {
 		display: none;
 	}
-
-	#login-image {
-		max-width: 90%;
-		margin: 0px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		order: 1;
-	}
-	
-	#login-image > img {
-		display: none;
-	}
-
-  }
+}
 
 /* Footer */
 .footer-links {
@@ -854,18 +832,6 @@ footer {
   	background: transparent;
   	border: 1px solid transparent;
 }
-
-.create-new-room {
-	width: 180px;
-	height: fit-content;
-	font-size: 13px;
-	margin-left: 30px;
-}
-
-.new-room-img {
-	max-width: 300px;
-}
-
 
 /* Room detail */
 .room-description {
