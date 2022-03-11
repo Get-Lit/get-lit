@@ -51,19 +51,22 @@
                         <div class="card mt-4">
                             <div class="card-body room-comment">
                                 <div>
-                                    <div class="d-flex flex-direction-column w-100">
-                                        <img src="{{comment.user.image}}" alt="User's picture" class="comment-img">
-                                        <h4 class="user-name">{{comment.user.name}}</h4>
-                                    </div>
+                                    <div class="d-flex flex-direction-column">
+                                        <div class="d-flex flex-direction-column w-100">
+                                            <img src="{{comment.user.image}}" alt="User's picture" class="comment-img">
+                                            <h4 class="user-name">{{comment.user.name}}</h4>
+                                        </div>
 
-                                    <div class="comment-reply-content">
-                                        <p>{{comment.content}}</p>
                                         {{#ifEquals ../currentUser.id comment.user.id}}
                                             <form action="/comment/{{comment.id}}/delete" method="POST">
                                                 <input type="text" name="id" class="d-none" value="{{../room.id}}">
                                                 <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
                                             </form>
                                         {{/ifEquals}}
+                                    </div>
+
+                                    <div class="comment-reply-content">
+                                        <p>{{comment.content}}</p>
                                     </div>
                                 </div>
                             </div>
