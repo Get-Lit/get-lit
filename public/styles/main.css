@@ -519,7 +519,6 @@ footer h6 {
 	max-width: 40%;
 }
 
-
 .form-image > img {
 	width: 85%;
 	margin-top: 40px;
@@ -787,13 +786,14 @@ footer h6 {
 	margin-top: 30px;
 }
 
+
 .about-div .card {
 	border-radius: 10px;
 }
 
 .about-img {
-	width: 13vw;
-	height: 13vw;
+	width: 7vw;
+	height: 7vw;
 	object-fit: cover;
 	border-radius: 10px;
 	margin-right: 15px;
@@ -801,14 +801,15 @@ footer h6 {
 
 .about-card {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	padding: 10px 20px 10px 10px;
 }
 
 
 .max-width {
-	max-width: 350px;
+	max-width: 500px;
+	margin-left: 20px;
 }
 
 .social-links {
@@ -824,6 +825,30 @@ footer h6 {
 
 .link-icon:hover{
 	color: #d8b7af;
+}
+
+.card-div {
+	display: flex;
+	align-items: center;
+}
+
+@media screen and (max-width: 950px) {
+	.about-div > div {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		margin-top: 30px;
+	}
+
+	.card-margin {
+		margin-bottom: 30px;
+	}
+
+	.about-img {
+		width: 80px;
+		height: 80px;
+	}
+	
 }
 
 /* Toast Div */
@@ -967,6 +992,18 @@ footer h6 {
 	margin-bottom: 10px;
 	justify-content: center;
 	align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+	.filter {
+		display: flex;
+		flex-direction: column;
+	}	
+
+	.all-rooms {
+		display: flex;
+		justify-content: center;
+	}
 }
 
 #filter-rooms {
@@ -1178,6 +1215,12 @@ footer h6 {
 	margin-top: 20px;
 }
 
+@media screen and (max-width: 600px) {
+	.room-card {
+		width: 90%;
+	}	
+}
+
 .title-link {
 	color: #96951B;
 	text-decoration: none;
@@ -1199,16 +1242,25 @@ footer h6 {
   	border: 1px solid transparent;
 }
 
+.create-new-room {
+	width: 200px;
+	margin-left: 20px;
+}
+
 /* Room detail */
+#room-detail-page {
+	width: 75%;
+}
+
 .room-description {
 	font-size: 22px;
+	word-wrap: break-word;
 }
 
 #room-book-title {
 	margin-left: 15px;
 	color: #d8b7af;
 	font-style: italic;
-
 }
 
 #comment-div {
@@ -1219,7 +1271,7 @@ footer h6 {
 
 .room-comment {
 	padding: 25px 20px;
-	min-height: 130px;
+	min-height: 120px;
 }
 
 .room-reply {
@@ -1234,11 +1286,19 @@ footer h6 {
 	border-radius: 10px;
 }
 
+.write-comment-img {
+	width: 60px;
+	height: 60px;
+	border-radius: 15px;
+	margin-right: 10px;
+} 
+
 .comment-img {
-	width: 70px;
-	height: 70px;
+	width: 40px;
+	height: 40px;
 	border-radius: 15px;
 	margin-right: 20px;
+	margin-top: -8px;
 }
 
 #comment-div > form {
@@ -1254,13 +1314,33 @@ footer h6 {
 	font-size: 18px;
 }
 
+.reply-background {
+	background-color: rgb(248, 247, 247);
+}
+
 .reply-img {
-	width: 40px;
-	height: 40px;
+	width: 25px;
+	height: 25px;
 	border-radius: 10px;
-	margin-left: 50px;
+	margin-left: 20px;
 	margin-right: 15px;
+	margin-top: 0px;
+}
+
+.comment-reply-content {
+	margin-left: 10px;
 	margin-top: 5px;
+	display: flex;
+	font-size: 15px;
+}
+
+.comment-reply-content > p {
+	font-size: 18px;
+}
+
+.comment-btn {
+	width: 120px;
+	margin: 10px;
 }
 
 .comment-reply-btn {
@@ -1293,8 +1373,18 @@ footer h6 {
 	background-color: #741111;
 }
 
-/* Find Bookshops */
+@media screen and (max-width: 600px) {
+	#room-detail-page {
+		width: 90%;
+	}
 
+	.reply-img {
+		margin-left: 10px
+	}
+}
+
+
+/* Find Bookshops */
 #google-map {
 	height: 450px;
 	width: 70%;
