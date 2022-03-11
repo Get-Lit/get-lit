@@ -780,13 +780,14 @@ footer h6 {
 	margin-top: 30px;
 }
 
+
 .about-div .card {
 	border-radius: 10px;
 }
 
 .about-img {
-	width: 13vw;
-	height: 13vw;
+	width: 7vw;
+	height: 7vw;
 	object-fit: cover;
 	border-radius: 10px;
 	margin-right: 15px;
@@ -794,14 +795,15 @@ footer h6 {
 
 .about-card {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	padding: 10px 20px 10px 10px;
 }
 
 
 .max-width {
-	max-width: 350px;
+	max-width: 500px;
+	margin-left: 20px;
 }
 
 .social-links {
@@ -817,6 +819,30 @@ footer h6 {
 
 .link-icon:hover{
 	color: #d8b7af;
+}
+
+.mismuelas {
+	display: flex;
+	align-items: center;
+}
+
+@media screen and (max-width: 950px) {
+	.about-div > div {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		margin-top: 30px;
+	}
+
+	.card-margin {
+		margin-bottom: 30px;
+	}
+
+	.about-img {
+		width: 80px;
+		height: 80px;
+	}
+	
 }
 
 /* Toast Div */
