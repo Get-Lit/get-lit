@@ -100,6 +100,12 @@ footer h6 {
 	border-right: 1px solid #ffd9d0;
 }
 
+@media only screen and (max-width: 600px) {
+	#random-quote-div {
+		width: 90vw;
+	}
+}
+
 #random-quote {
 	color:#ffd9d0;
 	overflow: hidden;
