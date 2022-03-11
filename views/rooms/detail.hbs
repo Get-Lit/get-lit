@@ -77,19 +77,22 @@
                                 {{#each comment.replies as |reply|}}
                                     <div class="card-body room-reply">
                                         <div>
-                                            <div class="d-flex flex-direction-column w-100">
-                                                <img src="{{reply.user.image}}" alt="User's picture" class="reply-img" referrerpolicy="no-referrer">
-                                                <h4 class="user-name">{{reply.user.name}}</h4>
-                                            </div>
+                                            <div class="d-flex flex-direction-column">
+                                                <div class="d-flex flex-direction-column w-100">
+                                                    <img src="{{reply.user.image}}" alt="User's picture" class="reply-img" referrerpolicy="no-referrer">
+                                                    <h4 class="user-name">{{reply.user.name}}</h4>
+                                                </div>
 
-                                            <div class="comment-reply-content">
-                                            <p>{{reply.content}}</p>
                                                 {{#ifEquals ../../currentUser.id reply.user.id}}
                                                 <form action="/comment/{{reply.id}}/delete" method="POST">
                                                     <input type="text" name="id" class="d-none" value="{{../../room.id}}">
                                                     <button class="border-0 bg-transparent" type="submit"><i class="bi bi-x-circle"></i></button>
                                                 </form>
                                                 {{/ifEquals}}
+                                            </div>
+
+                                            <div class="comment-reply-content">
+                                            <p>{{reply.content}}</p>
                                             </div>
                                         </div>
                                     </div>
