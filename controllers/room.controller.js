@@ -87,8 +87,11 @@ module.exports.doCreate = (req, res, next) => {
 module.exports.delete = (req, res, next) => {
     Room.findByIdAndDelete(req.params.id)
         .then(() => {
-            req.flash('flashMessage', 'Room successfully deleted.');
-            res.redirect('/rooms');
+            return Participant.deleteMany({ room: req.params.id })
+            .then(() => {
+                req.flash('flashMessage', 'Room successfully deleted.');
+                res.redirect('/rooms');
+            })
         })
         .catch(error => next(error));
 };
